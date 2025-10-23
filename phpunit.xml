@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+    bootstrap="tests/bootstrap.php"
+    executionOrder="depends,defects"
+    forceCoversAnnotation="true"
+    beStrictAboutCoversAnnotation="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTodoAnnotatedTests="true"
+    verbose="true"
+    colors="true"
+>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">includes</directory>
+            <directory suffix=".php">admin</directory>
+            <directory suffix=".php">public</directory>
+        </include>
+        <exclude>
+            <directory>vendor</directory>
+            <directory>tests</directory>
+            <directory>node_modules</directory>
+        </exclude>
+    </coverage>
+
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <directory>tests/unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests">
+            <directory>tests/integration</directory>
+        </testsuite>
+        <testsuite name="Acceptance Tests">
+            <directory>tests/acceptance</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="WP_TESTS_DIR" value="/tmp/wordpress-tests-lib" />
+        <env name="WP_ROOT_DIR" value="/tmp/wordpress" />
+        <env name="WP_CORE_DIR" value="/tmp/wordpress" />
+        <env name="DB_NAME" value="wordpress_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASSWORD" value="root" />
+        <env name="DB_HOST" value="localhost" />
+        <env name="DB_CHARSET" value="utf8" />
+        <env name="DB_COLLATE" value="" />
+        <env name="WP_TESTS_DOMAIN" value="example.org" />
+        <env name="WP_TESTS_EMAIL" value="admin@example.org" />
+        <env name="WP_TESTS_TITLE" value="Test Blog" />
+        <env name="WP_PHP_BINARY" value="php" />
+        <env name="WPLANG" value="" />
+    </php>
+</phpunit>

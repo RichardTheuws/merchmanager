@@ -1,0 +1,37 @@
+FROM wordpress:6.3-php8.1
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    default-mysql-client \
+    subversion \
+    wget \
+    curl \
+    git \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions for testing
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
+# Copy plugin files
+COPY . /var/www/html/wp-content/plugins/merchmanager/
+
+# Set working directory
+WORKDIR /var/www/html/wp-content/plugins/merchmanager
+
+# Install dependencies
+RUN composer install
+RUN npm ci
+
+# Setup WordPress tests
+RUN bash tests/bin/install-wp-tests.sh wordpress_test root root db latest
+
+# Default command
+CMD ["bash"]

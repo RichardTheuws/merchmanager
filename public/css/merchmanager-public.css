@@ -1,0 +1,315 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+/* Sales Page Styles */
+.msp-sales-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.msp-sales-page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.msp-band-logo {
+    max-width: 200px;
+    margin: 0 auto 20px;
+}
+
+.msp-band-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.msp-sales-page-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.msp-band-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.msp-show-info {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Access Code Form */
+.msp-access-code-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.msp-form-group {
+    margin-bottom: 15px;
+}
+
+.msp-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.msp-form-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Sales Form */
+.msp-sales-form {
+    margin-top: 30px;
+}
+
+.msp-merchandise-list {
+    margin-bottom: 30px;
+}
+
+.msp-merchandise-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.msp-merchandise-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.msp-merchandise-image {
+    width: 80px;
+    margin-right: 15px;
+}
+
+.msp-merchandise-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.msp-merchandise-details {
+    flex: 1;
+}
+
+.msp-merchandise-title {
+    font-size: 18px;
+    margin: 0 0 5px;
+}
+
+.msp-merchandise-meta {
+    font-size: 14px;
+    color: #666;
+}
+
+.msp-merchandise-meta span {
+    margin-right: 10px;
+}
+
+.msp-merchandise-price {
+    font-weight: bold;
+}
+
+.msp-merchandise-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.msp-merchandise-quantity label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.msp-quantity-input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Sale Summary */
+.msp-sale-summary {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.msp-sale-items {
+    margin-bottom: 20px;
+}
+
+.msp-selected-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.msp-selected-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.msp-sale-total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin: 20px 0;
+}
+
+.msp-payment-type,
+.msp-notes {
+    margin-bottom: 20px;
+}
+
+.msp-payment-type label,
+.msp-notes label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.msp-payment-type select,
+.msp-notes textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.msp-submit {
+    text-align: right;
+}
+
+/* Buttons */
+.msp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.msp-button:hover {
+    background-color: #005f8b;
+}
+
+.msp-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Sale Confirmation */
+.msp-sale-confirmation {
+    text-align: center;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Band Dashboard Styles */
+.msp-band-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.msp-band-selector {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.msp-band-selector h2 {
+    margin-top: 0;
+}
+
+.msp-band-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.msp-band-item {
+    width: 200px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.msp-band-item:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.msp-band-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.msp-band-item h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .msp-merchandise-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .msp-merchandise-quantity {
+        margin-left: 0;
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+    
+    .msp-band-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .msp-band-item {
+        width: 100%;
+    }
+}

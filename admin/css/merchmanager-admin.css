@@ -1,0 +1,225 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+/* Dashboard Styles */
+.msp-dashboard {
+    margin-top: 20px;
+}
+
+.msp-dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.msp-dashboard-welcome {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.msp-dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 2;
+    min-width: 300px;
+}
+
+.msp-stat-box {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.msp-stat-box:last-child {
+    margin-right: 0;
+}
+
+.msp-stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+.msp-dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.msp-dashboard-column {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.msp-dashboard-column:last-child {
+    margin-right: 0;
+}
+
+.msp-dashboard-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.msp-dashboard-card h3 {
+    padding: 15px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.msp-dashboard-card-content {
+    padding: 15px;
+    min-height: 200px;
+}
+
+.msp-dashboard-card-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.msp-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.msp-quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.msp-quick-link:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.msp-quick-link .dashicons {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+}
+
+/* Settings Styles */
+.msp-settings-wrapper {
+    margin-top: 20px;
+}
+
+.msp-settings-tab {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-top: none;
+}
+
+/* Sales Page Styles */
+.msp-sales-form {
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+.msp-sales-form .form-table th {
+    width: 200px;
+}
+
+.msp-sales-items {
+    margin-bottom: 20px;
+}
+
+.msp-sales-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.msp-sales-item-info {
+    flex: 1;
+}
+
+.msp-sales-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.msp-sales-item-quantity {
+    width: 60px;
+    margin: 0 10px;
+}
+
+.msp-sales-total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin: 20px 0;
+}
+
+/* Reports Styles */
+.msp-report-filters {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+}
+
+.msp-report-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+}
+
+.msp-report-chart {
+    margin-bottom: 30px;
+}
+
+.msp-report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.msp-report-table th,
+.msp-report-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.msp-report-table th {
+    background-color: #f9f9f9;
+}
+
+.msp-report-export {
+    margin-top: 20px;
+    text-align: right;
+}

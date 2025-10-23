@@ -1,0 +1,36 @@
+{
+  "name": "merchmanager",
+  "version": "1.0.1",
+  "description": "WordPress plugin for merchandise sales management",
+  "main": "merchmanager.php",
+  "scripts": {
+    "build": "wp-scripts build",
+    "dev": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js src/*.js",
+    "lint:css": "wp-scripts lint-style assets/css/*.css",
+    "test:js": "wp-scripts test-unit-js",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "analyze": "webpack-bundle-analyzer dist/main.js"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^27.0.0",
+    "cypress": "^12.0.0",
+    "webpack-bundle-analyzer": "^4.8.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE 11"
+  ],
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "merchandise",
+    "sales",
+    "music",
+    "bands"
+  ],
+  "author": "Metal Business Club",
+  "license": "GPL-2.0-or-later"
+}
