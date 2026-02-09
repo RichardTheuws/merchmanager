@@ -2,7 +2,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -18,8 +18,13 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager_Loader {
 
 	/**

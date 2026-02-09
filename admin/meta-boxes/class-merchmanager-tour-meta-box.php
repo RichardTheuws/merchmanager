@@ -2,7 +2,7 @@
 /**
  * The tour meta box class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,8 +16,13 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/admin/meta-boxes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager_Tour_Meta_Box {
 
     /**
@@ -28,6 +33,32 @@ class Merchmanager_Tour_Meta_Box {
     public function __construct() {
         add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
         add_action( 'save_post_msp_tour', array( $this, 'save_meta_boxes' ), 10, 2 );
+        add_action( 'admin_notices', array( $this, 'show_import_notice' ) );
+    }
+
+    /**
+     * Show admin notice after CSV import.
+     *
+     * @since    1.0.3
+     */
+    public function show_import_notice() {
+        $screen = get_current_screen();
+        if ( ! $screen || 'msp_tour' !== $screen->post_type || 'post' !== $screen->base ) {
+            return;
+        }
+        if ( isset( $_GET['msp_import_error'] ) && 'no_file' === sanitize_text_field( wp_unslash( $_GET['msp_import_error'] ) ) ) {
+            echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Please select a CSV file to import.', 'merchmanager' ) . '</p></div>';
+        }
+        if ( isset( $_GET['msp_import_result'] ) && isset( $_GET['msp_import_skipped'] ) ) {
+            $imported = absint( $_GET['msp_import_result'] );
+            $skipped = absint( $_GET['msp_import_skipped'] );
+            echo '<div class="notice notice-success is-dismissible"><p>' . esc_html( sprintf(
+                /* translators: 1: number of shows imported, 2: number of shows skipped */
+                __( 'Import completed: %1$d shows imported, %2$d skipped.', 'merchmanager' ),
+                $imported,
+                $skipped
+            ) ) . '</p></div>';
+        }
     }
 
     /**
@@ -89,10 +120,10 @@ class Merchmanager_Tour_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_tour_band_id">
-                <?php _e( 'Band', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Band', 'merchmanager' ); ?>
             </label>
             <select id="msp_tour_band_id" name="msp_tour_band_id" class="regular-text">
-                <option value=""><?php _e( 'Select a band...', 'merchmanager' ); ?></option>
+                <option value=""><?php esc_html_e( 'Select a band...', 'merchmanager' ); ?></option>
                 <?php foreach ( $bands as $band ) : ?>
                     <option value="<?php echo esc_attr( $band->get_id() ); ?>" <?php selected( $band_id, $band->get_id() ); ?>>
                         <?php echo esc_html( $band->get_name() ); ?>
@@ -103,33 +134,33 @@ class Merchmanager_Tour_Meta_Box {
 
         <div class="msp-meta-box-field">
             <label for="msp_tour_start_date">
-                <?php _e( 'Start Date', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Start Date', 'merchmanager' ); ?>
             </label>
-            <input type="date" id="msp_tour_start_date" name="msp_tour_start_date" value="<?php echo esc_attr( $start_date ? date( 'Y-m-d', strtotime( $start_date ) ) : '' ); ?>" class="regular-text">
+            <input type="date" id="msp_tour_start_date" name="msp_tour_start_date" value="<?php echo esc_attr( $start_date ? gmdate( 'Y-m-d', strtotime( $start_date ) ) : '' ); ?>" class="regular-text">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_tour_end_date">
-                <?php _e( 'End Date', 'merchmanager' ); ?>
+                <?php esc_html_e( 'End Date', 'merchmanager' ); ?>
             </label>
-            <input type="date" id="msp_tour_end_date" name="msp_tour_end_date" value="<?php echo esc_attr( $end_date ? date( 'Y-m-d', strtotime( $end_date ) ) : '' ); ?>" class="regular-text">
+            <input type="date" id="msp_tour_end_date" name="msp_tour_end_date" value="<?php echo esc_attr( $end_date ? gmdate( 'Y-m-d', strtotime( $end_date ) ) : '' ); ?>" class="regular-text">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_tour_status">
-                <?php _e( 'Status', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Status', 'merchmanager' ); ?>
             </label>
             <select id="msp_tour_status" name="msp_tour_status" class="regular-text">
-                <option value="upcoming" <?php selected( $status, 'upcoming' ); ?>><?php _e( 'Upcoming', 'merchmanager' ); ?></option>
-                <option value="active" <?php selected( $status, 'active' ); ?>><?php _e( 'Active', 'merchmanager' ); ?></option>
-                <option value="completed" <?php selected( $status, 'completed' ); ?>><?php _e( 'Completed', 'merchmanager' ); ?></option>
-                <option value="cancelled" <?php selected( $status, 'cancelled' ); ?>><?php _e( 'Cancelled', 'merchmanager' ); ?></option>
+                <option value="upcoming" <?php selected( $status, 'upcoming' ); ?>><?php esc_html_e( 'Upcoming', 'merchmanager' ); ?></option>
+                <option value="active" <?php selected( $status, 'active' ); ?>><?php esc_html_e( 'Active', 'merchmanager' ); ?></option>
+                <option value="completed" <?php selected( $status, 'completed' ); ?>><?php esc_html_e( 'Completed', 'merchmanager' ); ?></option>
+                <option value="cancelled" <?php selected( $status, 'cancelled' ); ?>><?php esc_html_e( 'Cancelled', 'merchmanager' ); ?></option>
             </select>
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_tour_notes">
-                <?php _e( 'Notes', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Notes', 'merchmanager' ); ?>
             </label>
             <textarea id="msp_tour_notes" name="msp_tour_notes" class="large-text" rows="5"><?php echo esc_textarea( $notes ); ?></textarea>
         </div>
@@ -151,23 +182,23 @@ class Merchmanager_Tour_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p class="description">
-                <?php _e( 'Manage shows for this tour.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Manage shows for this tour.', 'merchmanager' ); ?>
             </p>
         </div>
 
         <table class="widefat" id="msp-tour-shows-table">
             <thead>
                 <tr>
-                    <th><?php _e( 'Date', 'merchmanager' ); ?></th>
-                    <th><?php _e( 'Venue', 'merchmanager' ); ?></th>
-                    <th><?php _e( 'City', 'merchmanager' ); ?></th>
-                    <th><?php _e( 'Actions', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'Date', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'Venue', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'City', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'Actions', 'merchmanager' ); ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php if ( empty( $shows ) ) : ?>
                     <tr class="msp-no-shows">
-                        <td colspan="4"><?php _e( 'No shows added to this tour.', 'merchmanager' ); ?></td>
+                        <td colspan="4"><?php esc_html_e( 'No shows added to this tour.', 'merchmanager' ); ?></td>
                     </tr>
                 <?php else : ?>
                     <?php foreach ( $shows as $show ) : ?>
@@ -185,8 +216,8 @@ class Merchmanager_Tour_Meta_Box {
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <a href="<?php echo esc_url( get_edit_post_link( $show->get_id() ) ); ?>" class="button"><?php _e( 'Edit', 'merchmanager' ); ?></a>
-                                <a href="<?php echo esc_url( get_delete_post_link( $show->get_id() ) ); ?>" class="button"><?php _e( 'Delete', 'merchmanager' ); ?></a>
+                                <a href="<?php echo esc_url( get_edit_post_link( $show->get_id() ) ); ?>" class="button"><?php esc_html_e( 'Edit', 'merchmanager' ); ?></a>
+                                <a href="<?php echo esc_url( get_delete_post_link( $show->get_id() ) ); ?>" class="button"><?php esc_html_e( 'Delete', 'merchmanager' ); ?></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -195,7 +226,7 @@ class Merchmanager_Tour_Meta_Box {
             <tfoot>
                 <tr>
                     <td colspan="4">
-                        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=msp_show&tour_id=' . $post->ID ) ); ?>" class="button button-primary"><?php _e( 'Add Show', 'merchmanager' ); ?></a>
+                        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=msp_show&tour_id=' . $post->ID ) ); ?>" class="button button-primary"><?php esc_html_e( 'Add Show', 'merchmanager' ); ?></a>
                     </td>
                 </tr>
             </tfoot>
@@ -217,26 +248,26 @@ class Merchmanager_Tour_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p class="description">
-                <?php _e( 'Import shows from a CSV file or export shows to a CSV file.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Import shows from a CSV file or export shows to a CSV file.', 'merchmanager' ); ?>
             </p>
         </div>
 
         <div class="msp-meta-box-field">
-            <h4><?php _e( 'Import Shows', 'merchmanager' ); ?></h4>
+            <h4><?php esc_html_e( 'Import Shows', 'merchmanager' ); ?></h4>
             <p class="description">
-                <?php _e( 'Upload a CSV file with show data. The CSV file should have the following columns:', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Upload a CSV file with show data. The CSV file should have the following columns:', 'merchmanager' ); ?>
             </p>
             <ul class="msp-csv-columns">
-                <li><strong><?php _e( 'Name', 'merchmanager' ); ?></strong> - <?php _e( 'The name of the show (required)', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Date', 'merchmanager' ); ?></strong> - <?php _e( 'The date of the show in YYYY-MM-DD format (required)', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue Name', 'merchmanager' ); ?></strong> - <?php _e( 'The name of the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue Address', 'merchmanager' ); ?></strong> - <?php _e( 'The address of the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue City', 'merchmanager' ); ?></strong> - <?php _e( 'The city of the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue State', 'merchmanager' ); ?></strong> - <?php _e( 'The state/province of the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue Country', 'merchmanager' ); ?></strong> - <?php _e( 'The country of the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue Postal Code', 'merchmanager' ); ?></strong> - <?php _e( 'The postal code of the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Venue Contact', 'merchmanager' ); ?></strong> - <?php _e( 'Contact information for the venue', 'merchmanager' ); ?></li>
-                <li><strong><?php _e( 'Notes', 'merchmanager' ); ?></strong> - <?php _e( 'Additional notes for the show', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Name', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The name of the show (required)', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Date', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The date of the show in YYYY-MM-DD format (required)', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue Name', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The name of the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue Address', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The address of the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue City', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The city of the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue State', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The state/province of the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue Country', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The country of the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue Postal Code', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'The postal code of the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Venue Contact', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'Contact information for the venue', 'merchmanager' ); ?></li>
+                <li><strong><?php esc_html_e( 'Notes', 'merchmanager' ); ?></strong> - <?php esc_html_e( 'Additional notes for the show', 'merchmanager' ); ?></li>
             </ul>
 
             <form method="post" enctype="multipart/form-data" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
@@ -245,75 +276,75 @@ class Merchmanager_Tour_Meta_Box {
                 <?php wp_nonce_field( 'msp_import_shows', 'msp_import_shows_nonce' ); ?>
 
                 <div class="msp-import-mapping">
-                    <h4><?php _e( 'Column Mapping', 'merchmanager' ); ?></h4>
+                    <h4><?php esc_html_e( 'Column Mapping', 'merchmanager' ); ?></h4>
                     <p class="description">
-                        <?php _e( 'Map the columns in your CSV file to the fields in the plugin.', 'merchmanager' ); ?>
+                        <?php esc_html_e( 'Map the columns in your CSV file to the fields in the plugin.', 'merchmanager' ); ?>
                     </p>
 
                     <table class="widefat">
                         <thead>
                             <tr>
-                                <th><?php _e( 'Field', 'merchmanager' ); ?></th>
-                                <th><?php _e( 'CSV Column', 'merchmanager' ); ?></th>
+                                <th><?php esc_html_e( 'Field', 'merchmanager' ); ?></th>
+                                <th><?php esc_html_e( 'CSV Column', 'merchmanager' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><?php _e( 'Name', 'merchmanager' ); ?> *</td>
+                                <td><?php esc_html_e( 'Name', 'merchmanager' ); ?> *</td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[name]" value="0" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Date', 'merchmanager' ); ?> *</td>
+                                <td><?php esc_html_e( 'Date', 'merchmanager' ); ?> *</td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[date]" value="1" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue Name', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue Name', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_name]" value="2" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue Address', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue Address', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_address]" value="3" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue City', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue City', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_city]" value="4" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue State', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue State', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_state]" value="5" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue Country', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue Country', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_country]" value="6" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue Postal Code', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue Postal Code', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_postal_code]" value="7" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Venue Contact', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Venue Contact', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[venue_contact]" value="8" min="0" class="small-text">
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php _e( 'Notes', 'merchmanager' ); ?></td>
+                                <td><?php esc_html_e( 'Notes', 'merchmanager' ); ?></td>
                                 <td>
                                     <input type="number" name="msp_import_mapping[notes]" value="9" min="0" class="small-text">
                                 </td>
@@ -321,12 +352,12 @@ class Merchmanager_Tour_Meta_Box {
                         </tbody>
                     </table>
                     <p class="description">
-                        <?php _e( '* Required fields', 'merchmanager' ); ?>
+                        <?php esc_html_e( '* Required fields', 'merchmanager' ); ?>
                     </p>
                 </div>
 
                 <div class="msp-import-file">
-                    <label for="msp_import_file"><?php _e( 'CSV File', 'merchmanager' ); ?></label>
+                    <label for="msp_import_file"><?php esc_html_e( 'CSV File', 'merchmanager' ); ?></label>
                     <input type="file" id="msp_import_file" name="msp_import_file" accept=".csv">
                 </div>
 
@@ -337,9 +368,9 @@ class Merchmanager_Tour_Meta_Box {
         </div>
 
         <div class="msp-meta-box-field">
-            <h4><?php _e( 'Export Shows', 'merchmanager' ); ?></h4>
+            <h4><?php esc_html_e( 'Export Shows', 'merchmanager' ); ?></h4>
             <p class="description">
-                <?php _e( 'Export all shows for this tour to a CSV file.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Export all shows for this tour to a CSV file.', 'merchmanager' ); ?>
             </p>
 
             <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">

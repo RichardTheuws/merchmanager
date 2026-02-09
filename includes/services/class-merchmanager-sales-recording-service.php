@@ -2,7 +2,7 @@
 /**
  * The sales recording service class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/services
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Sales_Recording_Service {
 
@@ -47,7 +47,8 @@ class Merchmanager_Sales_Recording_Service {
      * @return   array    The sales session contents.
      */
     public function get_sales_session() {
-        return isset( $_SESSION[ $this->sales_key ] ) ? $_SESSION[ $this->sales_key ] : array();
+        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Session data is plugin-controlled and validated on write.
+        return isset( $_SESSION[ $this->sales_key ] ) && is_array( $_SESSION[ $this->sales_key ] ) ? $_SESSION[ $this->sales_key ] : array();
     }
 
     /**
@@ -82,8 +83,12 @@ class Merchmanager_Sales_Recording_Service {
         $current_quantity = isset( $sales_session[ $merchandise_id ]['quantity'] ) ? $sales_session[ $merchandise_id ]['quantity'] : 0;
         
         if ( $current_quantity + $quantity > $stock ) {
-            return new WP_Error( 'insufficient_stock', 
-                sprintf( __( 'Only %d items available in stock.', 'merchmanager' ), $stock ) 
+            return new WP_Error( 'insufficient_stock',
+                sprintf(
+                    /* translators: %1$d: available stock quantity */
+                    __( 'Only %1$d items available in stock.', 'merchmanager' ),
+                    $stock
+                )
             );
         }
 
@@ -135,8 +140,12 @@ class Merchmanager_Sales_Recording_Service {
         // Check stock
         $stock = $merchandise->get_stock();
         if ( $quantity > $stock ) {
-            return new WP_Error( 'insufficient_stock', 
-                sprintf( __( 'Only %d items available in stock.', 'merchmanager' ), $stock ) 
+            return new WP_Error( 'insufficient_stock',
+                sprintf(
+                    /* translators: %1$d: available stock quantity */
+                    __( 'Only %1$d items available in stock.', 'merchmanager' ),
+                    $stock
+                )
             );
         }
 
@@ -272,26 +281,39 @@ class Merchmanager_Sales_Recording_Service {
             $merchandise = new Merchmanager_Merchandise( $merchandise_id );
             
             if ( ! $merchandise->get_id() ) {
-                $errors[] = sprintf( __( 'Item #%d is no longer available.', 'merchmanager' ), $merchandise_id );
+                $errors[] = sprintf(
+                    /* translators: %1$d: merchandise ID */
+                    __( 'Item #%1$d is no longer available.', 'merchmanager' ),
+                    $merchandise_id
+                );
                 continue;
             }
-            
+
             if ( ! $merchandise->is_active() ) {
-                $errors[] = sprintf( __( '%s is no longer available.', 'merchmanager' ), $merchandise->get_name() );
+                $errors[] = sprintf(
+                    /* translators: %1$s: merchandise name */
+                    __( '%1$s is no longer available.', 'merchmanager' ),
+                    $merchandise->get_name()
+                );
                 continue;
             }
-            
+
             $stock = $merchandise->get_stock();
             if ( $stock <= 0 ) {
-                $errors[] = sprintf( __( '%s is out of stock.', 'merchmanager' ), $merchandise->get_name() );
+                $errors[] = sprintf(
+                    /* translators: %1$s: merchandise name */
+                    __( '%1$s is out of stock.', 'merchmanager' ),
+                    $merchandise->get_name()
+                );
                 continue;
             }
-            
+
             if ( $sales_item['quantity'] > $stock ) {
-                $errors[] = sprintf( 
-                    __( 'Only %d of %s available in stock.', 'merchmanager' ), 
-                    $stock, 
-                    $merchandise->get_name() 
+                $errors[] = sprintf(
+                    /* translators: 1: available stock quantity, 2: merchandise name */
+                    __( 'Only %1$d of %2$s available in stock.', 'merchmanager' ),
+                    $stock,
+                    $merchandise->get_name()
                 );
                 continue;
             }

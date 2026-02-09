@@ -2,7 +2,7 @@
 /**
  * The report service class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/services
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Report_Service {
 
@@ -345,7 +345,8 @@ class Merchmanager_Report_Service {
             $delimiter = "\t";
         }
         
-        // Open the file
+        // Open the file (CSV export requires stream for fputcsv).
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         $file = fopen( $file_path, 'w' );
         if ( ! $file ) {
             return array(
@@ -369,6 +370,7 @@ class Merchmanager_Report_Service {
                 break;
                 
             default:
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Close handle before returning error; path from validated temp file.
                 fclose( $file );
                 return array(
                     'success' => false,
@@ -377,12 +379,14 @@ class Merchmanager_Report_Service {
         }
         
         // Close the file
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         fclose( $file );
         
         return array(
             'success' => true,
             'message' => sprintf(
-                __( 'Report exported to %s.', 'merchmanager' ),
+                /* translators: %1$s: filename */
+                __( 'Report exported to %1$s.', 'merchmanager' ),
                 basename( $file_path )
             ),
             'file_path' => $file_path,

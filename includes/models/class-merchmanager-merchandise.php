@@ -2,7 +2,7 @@
 /**
  * The merchandise model class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/models
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Merchandise {
 
@@ -435,15 +435,17 @@ class Merchmanager_Merchandise {
         
         // Check if stock is below threshold
         if ( $this->stock <= $threshold ) {
-            // Check if alert already exists
-            $table_name = $wpdb->prefix . 'msp_stock_alerts';
+            // Check if alert already exists (WP 6.2+ %i for table identifier).
             $alert_exists = $wpdb->get_var( $wpdb->prepare(
-                "SELECT COUNT(*) FROM $table_name WHERE merchandise_id = %d AND status = 'active'",
-                $this->id
+                'SELECT COUNT(*) FROM %i WHERE merchandise_id = %d AND status = %s',
+                $wpdb->prefix . 'msp_stock_alerts',
+                $this->id,
+                'active'
             ) );
             
             // Create alert if it doesn't exist
             if ( ! $alert_exists ) {
+                $table_name = $wpdb->prefix . 'msp_stock_alerts';
                 $result = $wpdb->insert(
                     $table_name,
                     array(

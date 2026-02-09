@@ -1,10 +1,22 @@
-# Merchandise Sales Plugin
+# MerchManager
 
-A comprehensive WordPress plugin for bands and music artists to manage merchandise sales during tours and events.
+A free, open-source WordPress plugin for bands and music artists to manage merchandise sales during tours and events.
 
-## Description
+---
 
-The Merchandise Sales Plugin is designed to help bands, musicians, tour managers, and merchandising staff manage their merchandise inventory and sales across multiple tours and venues. The plugin offers a complete solution for tracking inventory, recording sales, managing tours, and generating reports, all within a WordPress environment.
+## Why this exists
+
+**Richard** (Theuws Consulting) spent more than 20 years at the helm of a European merchandise company and has always helped bands with their merchandise management. With MerchManager he hopes to help many more bands run their merch in a simple, professional way—without paying for yet another tool.
+
+This is **not a commercial project**. There is no paid version and there will not be one. In a world where everyone wants to make money from bands, this plugin is built with the help of AI and given away. **Everyone is welcome** to use it, fork it, improve it, or contribute—code, ideas, and feedback are all appreciated.
+
+It exists as a **WordPress plugin** because Richard has been working with WordPress since 2006 and has the most experience there; making it a plugin was the most practical way to get it into the hands of bands and their teams.
+
+---
+
+## What it does
+
+MerchManager helps bands, musicians, tour managers, and merchandising staff manage inventory and sales across multiple tours and venues. It runs inside WordPress and covers tracking stock, recording sales, managing tours and shows, and generating reports.
 
 ### Key Features
 
@@ -28,7 +40,7 @@ The Merchandise Sales Plugin is designed to help bands, musicians, tour managers
 
 ## Requirements
 
-- WordPress 5.0 or higher
+- WordPress 6.2 or higher
 - PHP 7.4 or higher
 - MySQL 5.6 or higher
 - Modern web browsers (Chrome, Firefox, Safari, Edge)
@@ -71,8 +83,7 @@ merchmanager/
 │   ├── class-loader.php    # Hook and filter loader
 │   ├── class-merchmanager.php # Main plugin class
 │   ├── post-types/         # Custom post type definitions
-│   ├── taxonomies/         # Custom taxonomy definitions
-│   ├── models/             # Data models
+│   │   ├── models/             # Data models
 │   └── services/           # Business logic services
 ├── public/                 # Public-facing functionality
 │   ├── css/                # Public stylesheets
@@ -80,8 +91,7 @@ merchmanager/
 │   ├── partials/           # Public view templates
 │   └── class-public.php    # Public class
 ├── languages/              # Translation files
-├── templates/              # Template overrides
-├── assets/                 # Static assets
+├── assets/                 # Static assets (icon, logo)
 ├── docs/                   # Documentation
 ├── merchmanager.php        # Plugin bootstrap file
 ├── uninstall.php           # Cleanup on uninstall
@@ -115,25 +125,28 @@ npx cypress run
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+You are welcome to contribute in any way that helps: code, documentation, translations, bug reports, or feature ideas. There is no paid version or company behind this—just a tool built to help bands, and improved by anyone who cares to join in.
 
 1. Fork the repository
 2. Create your feature branch: `git checkout -b feature/my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin feature/my-new-feature`
-5. Submit a pull request
+5. Open a pull request
 
 ## License
 
 This project is licensed under the GPL v2 or later - see the [LICENSE](LICENSE) file for details.
 
+## WordPress.org & GitHub
+
+- **WordPress.org**: [readme.txt](readme.txt) for the plugin directory listing
+- **GitHub**: [https://github.com/theuws-consulting/merch-manager](https://github.com/theuws-consulting/merch-manager)
+
 ## Support
 
-For support, please:
-
 1. Check the [User Guide](docs/user_guide.md)
-2. Visit the support forum
-3. Contact the plugin developer
+2. Open an issue or discussion on GitHub
+3. For WordPress.org installs: use the plugin’s support forum on WordPress.org
 
 ## Changelog
 

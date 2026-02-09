@@ -2,7 +2,7 @@
 /**
  * The database class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/database
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Database {
 
@@ -118,8 +118,7 @@ class Merchmanager_Database {
         );
 
         foreach ( $tables as $table ) {
-            $query = $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table ) );
-            if ( ! $wpdb->get_var( $query ) ) {
+            if ( ! $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table ) ) ) ) {
                 return false;
             }
         }
@@ -142,7 +141,7 @@ class Merchmanager_Database {
         );
 
         foreach ( $tables as $table ) {
-            $wpdb->query( "DROP TABLE IF EXISTS $table" );
+            $wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $table ) );
         }
     }
 
@@ -198,7 +197,7 @@ class Merchmanager_Database {
             'meta_query'     => array(
                 array(
                     'key'     => '_msp_show_date',
-                    'value'   => date( 'Y-m-d', strtotime( '-30 days' ) ),
+                    'value'   => gmdate( 'Y-m-d', strtotime( '-30 days' ) ),
                     'compare' => '>=',
                     'type'    => 'DATE',
                 ),
@@ -219,10 +218,10 @@ class Merchmanager_Database {
             foreach ( $merchandise as $merch ) {
                 $price = get_post_meta( $merch->ID, '_msp_merchandise_price', true );
                 if ( ! $price ) {
-                    $price = rand( 10, 30 );
+                    $price = wp_rand( 10, 30 );
                 }
                 
-                $quantity = rand( 1, 5 );
+                $quantity = wp_rand( 1, 5 );
                 $payment_type = $payment_types[ array_rand( $payment_types ) ];
                 
                 $wpdb->insert(

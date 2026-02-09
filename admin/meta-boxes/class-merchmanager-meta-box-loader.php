@@ -2,7 +2,7 @@
 /**
  * The meta box loader class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,8 +16,13 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/admin/meta-boxes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager_Meta_Box_Loader {
 
     /**
@@ -46,6 +51,12 @@ class Merchmanager_Meta_Box_Loader {
      * @access   private
      */
     private function load_dependencies() {
+        // Load model classes (required by meta boxes)
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . '../includes/models/class-merchmanager-band.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . '../includes/models/class-merchmanager-tour.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . '../includes/models/class-merchmanager-show.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . '../includes/models/class-merchmanager-merchandise.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . '../includes/models/class-merchmanager-sales-page.php';
         // Load meta box classes
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'meta-boxes/class-merchmanager-band-meta-box.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'meta-boxes/class-merchmanager-tour-meta-box.php';

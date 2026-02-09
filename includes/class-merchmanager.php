@@ -5,7 +5,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -24,8 +24,13 @@
  * @since      1.0.0
  * @package    Merchmanager
  * @subpackage Merchmanager/includes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager {
 
 	/**
@@ -164,6 +169,21 @@ class Merchmanager {
 		
 		// Add admin menu
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
+		// Reorder submenu: Dashboard, Bands, Tours, Shows, Merchandise, Sales Pages, Sales, Reports, Settings, Setup Wizard
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'reorder_merchmanager_submenu', 999 );
+		
+		// Redirect to onboarding on first run
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'maybe_redirect_to_onboarding' );
+		
+		// Register settings
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
+
+		// Handle CSV export before any output
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'maybe_handle_report_csv_export' );
+
+		// Handle tour show import/export
+		$this->loader->add_action( 'admin_post_msp_import_shows', $plugin_admin, 'handle_tour_import_shows' );
+		$this->loader->add_action( 'admin_post_msp_export_shows', $plugin_admin, 'handle_tour_export_shows' );
 		
 		// Add settings link to plugins page
 		$this->loader->add_filter( 'plugin_action_links_' . MERCHMANAGER_PLUGIN_BASENAME, $plugin_admin, 'add_action_links' );

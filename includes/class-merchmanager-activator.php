@@ -2,7 +2,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -17,7 +17,7 @@
  * @since      1.0.0
  * @package    Merchmanager
  * @subpackage Merchmanager/includes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Activator {
 
@@ -32,6 +32,9 @@ class Merchmanager_Activator {
 		// Create custom database tables
 		self::create_tables();
 
+		// Set default settings if none exist
+		self::set_default_settings();
+
 		// Register custom post types
 		require_once MERCHMANAGER_PLUGIN_DIR . 'includes/post-types/class-merchmanager-post-types.php';
 		$post_types = new Merchmanager_Post_Types();
@@ -42,6 +45,50 @@ class Merchmanager_Activator {
 
 		// Create custom user roles
 		self::create_user_roles();
+	}
+
+	/**
+	 * Set default plugin settings on first activation.
+	 *
+	 * @since    1.0.3
+	 */
+	private static function set_default_settings() {
+		if ( false !== get_option( 'msp_settings', false ) ) {
+			return;
+		}
+		$defaults = array(
+			'currency'              => 'EUR',
+			'date_format'           => 'Y-m-d',
+			'time_format'           => 'H:i',
+			'low_stock_threshold'   => 5,
+			'sales_page_expiry'     => 7,
+			'management_manage_bands'       => 1,
+			'management_manage_tours'       => 1,
+			'management_manage_merchandise' => 1,
+			'management_manage_sales'       => 1,
+			'management_view_reports'       => 1,
+			'tour_management_manage_bands'       => 0,
+			'tour_management_manage_tours'       => 1,
+			'tour_management_manage_merchandise' => 1,
+			'tour_management_manage_sales'       => 1,
+			'tour_management_view_reports'       => 1,
+			'merch_sales_manage_bands'       => 0,
+			'merch_sales_manage_tours'       => 0,
+			'merch_sales_manage_merchandise' => 0,
+			'merch_sales_manage_sales'       => 1,
+			'merch_sales_view_reports'       => 0,
+			'enable_email_notifications'     => 0,
+			'notification_email'             => get_option( 'admin_email', '' ),
+			'notify_low_stock'               => 1,
+			'notify_sales_summary'           => 1,
+			'notify_new_sales_page'          => 1,
+			'data_retention'                 => 365,
+			'debug_mode'                     => 0,
+			'csv_delimiter'                  => ',',
+			'remove_data'                    => 0,
+		);
+		update_option( 'msp_settings', $defaults );
+		update_option( 'msp_remove_data_on_uninstall', 0 );
 	}
 
 	/**

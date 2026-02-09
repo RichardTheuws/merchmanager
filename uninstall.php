@@ -2,7 +2,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -13,8 +13,12 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
     exit;
 }
 
-// Check if we should remove all data
+// Check if we should remove all data (standalone option or msp_settings for backwards compatibility)
 $remove_data = get_option( 'msp_remove_data_on_uninstall', false );
+if ( ! $remove_data ) {
+	$msp_settings = get_option( 'msp_settings', array() );
+	$remove_data  = ! empty( $msp_settings['remove_data'] );
+}
 
 if ( $remove_data ) {
     // Load database class
@@ -52,6 +56,8 @@ if ( $remove_data ) {
         'msp_plugin_status',
         'msp_settings',
         'msp_remove_data_on_uninstall',
+        'merchmanager_onboarding_complete',
+        'merchmanager_version',
     );
     
     foreach ( $options as $option ) {

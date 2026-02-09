@@ -2,7 +2,7 @@
 /**
  * Register custom post types for the plugin
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/post-types
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Post_Types {
 

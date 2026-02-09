@@ -2,7 +2,7 @@
 /**
  * The merchandise meta box class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,8 +16,13 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/admin/meta-boxes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager_Merchandise_Meta_Box {
 
     /**
@@ -115,10 +120,10 @@ class Merchmanager_Merchandise_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_band_id">
-                <?php _e( 'Band', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Band', 'merchmanager' ); ?>
             </label>
             <select id="msp_merchandise_band_id" name="msp_merchandise_band_id" class="regular-text">
-                <option value=""><?php _e( 'Select a band...', 'merchmanager' ); ?></option>
+                <option value=""><?php esc_html_e( 'Select a band...', 'merchmanager' ); ?></option>
                 <?php foreach ( $bands as $band ) : ?>
                     <option value="<?php echo esc_attr( $band->get_id() ); ?>" <?php selected( $band_id, $band->get_id() ); ?>>
                         <?php echo esc_html( $band->get_name() ); ?>
@@ -129,17 +134,17 @@ class Merchmanager_Merchandise_Meta_Box {
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_sku">
-                <?php _e( 'SKU', 'merchmanager' ); ?>
+                <?php esc_html_e( 'SKU', 'merchmanager' ); ?>
             </label>
             <input type="text" id="msp_merchandise_sku" name="msp_merchandise_sku" value="<?php echo esc_attr( $sku ); ?>" class="regular-text">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_category">
-                <?php _e( 'Category', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Category', 'merchmanager' ); ?>
             </label>
             <select id="msp_merchandise_category" name="msp_merchandise_category" class="regular-text">
-                <option value=""><?php _e( 'Select a category...', 'merchmanager' ); ?></option>
+                <option value=""><?php esc_html_e( 'Select a category...', 'merchmanager' ); ?></option>
                 <?php foreach ( $categories as $category_key => $category_label ) : ?>
                     <option value="<?php echo esc_attr( $category_key ); ?>" <?php selected( $category, $category_key ); ?>>
                         <?php echo esc_html( $category_label ); ?>
@@ -150,10 +155,10 @@ class Merchmanager_Merchandise_Meta_Box {
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_active">
-                <?php _e( 'Active', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Active', 'merchmanager' ); ?>
             </label>
             <input type="checkbox" id="msp_merchandise_active" name="msp_merchandise_active" value="1" <?php checked( $active, true ); ?>>
-            <span class="description"><?php _e( 'Inactive merchandise will not be available for sales.', 'merchmanager' ); ?></span>
+            <span class="description"><?php esc_html_e( 'Inactive merchandise will not be available for sales.', 'merchmanager' ); ?></span>
         </div>
         <?php
     }
@@ -191,7 +196,7 @@ class Merchmanager_Merchandise_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_price">
-                <?php _e( 'Price', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Price', 'merchmanager' ); ?>
             </label>
             <div class="msp-price-field">
                 <span class="msp-currency-symbol"><?php echo esc_html( $currency_symbol ); ?></span>
@@ -201,45 +206,45 @@ class Merchmanager_Merchandise_Meta_Box {
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_cost">
-                <?php _e( 'Cost', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Cost', 'merchmanager' ); ?>
             </label>
             <div class="msp-price-field">
                 <span class="msp-currency-symbol"><?php echo esc_html( $currency_symbol ); ?></span>
                 <input type="number" id="msp_merchandise_cost" name="msp_merchandise_cost" value="<?php echo esc_attr( $cost ); ?>" class="regular-text" step="0.01" min="0">
             </div>
-            <p class="description"><?php _e( 'Cost per unit (for profit calculations).', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Cost per unit (for profit calculations).', 'merchmanager' ); ?></p>
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_stock">
-                <?php _e( 'Stock', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Stock', 'merchmanager' ); ?>
             </label>
             <input type="number" id="msp_merchandise_stock" name="msp_merchandise_stock" value="<?php echo esc_attr( $stock ); ?>" class="regular-text" min="0">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_low_stock_threshold">
-                <?php _e( 'Low Stock Threshold', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Low Stock Threshold', 'merchmanager' ); ?>
             </label>
             <input type="number" id="msp_merchandise_low_stock_threshold" name="msp_merchandise_low_stock_threshold" value="<?php echo esc_attr( $low_stock_threshold ? $low_stock_threshold : $default_threshold ); ?>" class="regular-text" min="0">
-            <p class="description"><?php _e( 'When stock reaches this amount, a low stock alert will be triggered.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'When stock reaches this amount, a low stock alert will be triggered.', 'merchmanager' ); ?></p>
         </div>
 
         <div class="msp-meta-box-field">
-            <h3><?php _e( 'Stock Management', 'merchmanager' ); ?></h3>
+            <h3><?php esc_html_e( 'Stock Management', 'merchmanager' ); ?></h3>
             <p>
                 <label for="msp_merchandise_stock_adjustment">
-                    <?php _e( 'Adjust Stock', 'merchmanager' ); ?>
+                    <?php esc_html_e( 'Adjust Stock', 'merchmanager' ); ?>
                 </label>
                 <input type="number" id="msp_merchandise_stock_adjustment" name="msp_merchandise_stock_adjustment" value="0" class="regular-text">
-                <span class="description"><?php _e( 'Enter a positive number to add stock or a negative number to remove stock.', 'merchmanager' ); ?></span>
+                <span class="description"><?php esc_html_e( 'Enter a positive number to add stock or a negative number to remove stock.', 'merchmanager' ); ?></span>
             </p>
             <p>
                 <label for="msp_merchandise_stock_notes">
-                    <?php _e( 'Notes', 'merchmanager' ); ?>
+                    <?php esc_html_e( 'Notes', 'merchmanager' ); ?>
                 </label>
                 <input type="text" id="msp_merchandise_stock_notes" name="msp_merchandise_stock_notes" value="" class="regular-text">
-                <span class="description"><?php _e( 'Optional notes about this stock adjustment.', 'merchmanager' ); ?></span>
+                <span class="description"><?php esc_html_e( 'Optional notes about this stock adjustment.', 'merchmanager' ); ?></span>
             </p>
         </div>
         <?php
@@ -293,7 +298,7 @@ class Merchmanager_Merchandise_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_size">
-                <?php _e( 'Size', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Size', 'merchmanager' ); ?>
             </label>
             <select id="msp_merchandise_size" name="msp_merchandise_size" class="regular-text">
                 <?php foreach ( $sizes as $size_key => $size_label ) : ?>
@@ -306,7 +311,7 @@ class Merchmanager_Merchandise_Meta_Box {
 
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_color">
-                <?php _e( 'Color', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Color', 'merchmanager' ); ?>
             </label>
             <select id="msp_merchandise_color" name="msp_merchandise_color" class="regular-text">
                 <?php foreach ( $colors as $color_key => $color_label ) : ?>
@@ -334,10 +339,10 @@ class Merchmanager_Merchandise_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_merchandise_supplier">
-                <?php _e( 'Supplier Information', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Supplier Information', 'merchmanager' ); ?>
             </label>
             <textarea id="msp_merchandise_supplier" name="msp_merchandise_supplier" class="large-text" rows="5"><?php echo esc_textarea( $supplier ); ?></textarea>
-            <p class="description"><?php _e( 'Enter supplier name, contact information, and any other relevant details.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Enter supplier name, contact information, and any other relevant details.', 'merchmanager' ); ?></p>
         </div>
         <?php
     }
@@ -354,26 +359,30 @@ class Merchmanager_Merchandise_Meta_Box {
         // Get merchandise data
         $merchandise = new Merchmanager_Merchandise( $post->ID );
 
-        // Get sales data
-        $table_name = $wpdb->prefix . 'msp_sales';
+        // Get sales data (WP 6.2+ %i for table identifier).
+        $sales_table = $wpdb->prefix . 'msp_sales';
         $sales = $wpdb->get_results( $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE merchandise_id = %d ORDER BY date DESC LIMIT 10",
+            'SELECT * FROM %i WHERE merchandise_id = %d ORDER BY date DESC LIMIT 10',
+            $sales_table,
             $post->ID
         ) );
 
         // Get total sales
         $total_sales = $wpdb->get_var( $wpdb->prepare(
-            "SELECT COUNT(*) FROM $table_name WHERE merchandise_id = %d",
+            'SELECT COUNT(*) FROM %i WHERE merchandise_id = %d',
+            $sales_table,
             $post->ID
         ) );
 
         $total_quantity = $wpdb->get_var( $wpdb->prepare(
-            "SELECT SUM(quantity) FROM $table_name WHERE merchandise_id = %d",
+            'SELECT SUM(quantity) FROM %i WHERE merchandise_id = %d',
+            $sales_table,
             $post->ID
         ) );
 
         $total_amount = $wpdb->get_var( $wpdb->prepare(
-            "SELECT SUM(price * quantity) FROM $table_name WHERE merchandise_id = %d",
+            'SELECT SUM(price * quantity) FROM %i WHERE merchandise_id = %d',
+            $sales_table,
             $post->ID
         ) );
 
@@ -392,34 +401,34 @@ class Merchmanager_Merchandise_Meta_Box {
         // Render fields
         ?>
         <div class="msp-meta-box-field">
-            <h3><?php _e( 'Sales Summary', 'merchmanager' ); ?></h3>
+            <h3><?php esc_html_e( 'Sales Summary', 'merchmanager' ); ?></h3>
             <p>
-                <strong><?php _e( 'Total Sales:', 'merchmanager' ); ?></strong>
+                <strong><?php esc_html_e( 'Total Sales:', 'merchmanager' ); ?></strong>
                 <?php echo esc_html( $total_sales ); ?>
             </p>
             <p>
-                <strong><?php _e( 'Total Quantity:', 'merchmanager' ); ?></strong>
+                <strong><?php esc_html_e( 'Total Quantity:', 'merchmanager' ); ?></strong>
                 <?php echo esc_html( $total_quantity ); ?>
             </p>
             <p>
-                <strong><?php _e( 'Total Amount:', 'merchmanager' ); ?></strong>
+                <strong><?php esc_html_e( 'Total Amount:', 'merchmanager' ); ?></strong>
                 <?php echo esc_html( $currency_symbol . number_format( $total_amount, 2 ) ); ?>
             </p>
         </div>
 
         <div class="msp-meta-box-field">
-            <h3><?php _e( 'Recent Sales', 'merchmanager' ); ?></h3>
+            <h3><?php esc_html_e( 'Recent Sales', 'merchmanager' ); ?></h3>
             <?php if ( empty( $sales ) ) : ?>
-                <p><?php _e( 'No sales recorded for this merchandise.', 'merchmanager' ); ?></p>
+                <p><?php esc_html_e( 'No sales recorded for this merchandise.', 'merchmanager' ); ?></p>
             <?php else : ?>
                 <table class="widefat">
                     <thead>
                         <tr>
-                            <th><?php _e( 'Date', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Show', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Quantity', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Price', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Total', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Date', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Show', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Quantity', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Price', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Total', 'merchmanager' ); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -437,7 +446,7 @@ class Merchmanager_Merchandise_Meta_Box {
                                             <?php echo esc_html( $show->get_name() ); ?>
                                         </a>
                                     <?php else : ?>
-                                        <?php _e( 'N/A', 'merchmanager' ); ?>
+                                        <?php esc_html_e( 'N/A', 'merchmanager' ); ?>
                                     <?php endif; ?>
                                 </td>
                                 <td>
@@ -455,35 +464,36 @@ class Merchmanager_Merchandise_Meta_Box {
                 </table>
                 <?php if ( $total_sales > 10 ) : ?>
                     <p>
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=sales&merchandise_id=' . $post->ID ) ); ?>" class="button"><?php _e( 'View All Sales', 'merchmanager' ); ?></a>
+                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=sales&merchandise_id=' . $post->ID ) ); ?>" class="button"><?php esc_html_e( 'View All Sales', 'merchmanager' ); ?></a>
                     </p>
                 <?php endif; ?>
             <?php endif; ?>
         </div>
 
         <div class="msp-meta-box-field">
-            <h3><?php _e( 'Stock History', 'merchmanager' ); ?></h3>
+            <h3><?php esc_html_e( 'Stock History', 'merchmanager' ); ?></h3>
             <?php
-            // Get stock log
-            $table_name = $wpdb->prefix . 'msp_stock_log';
+            // Get stock log (WP 6.2+ %i for table identifier).
+            $stock_log_table = $wpdb->prefix . 'msp_stock_log';
             $stock_log = $wpdb->get_results( $wpdb->prepare(
-                "SELECT * FROM $table_name WHERE merchandise_id = %d ORDER BY created_at DESC LIMIT 10",
+                'SELECT * FROM %i WHERE merchandise_id = %d ORDER BY created_at DESC LIMIT 10',
+                $stock_log_table,
                 $post->ID
             ) );
             ?>
 
             <?php if ( empty( $stock_log ) ) : ?>
-                <p><?php _e( 'No stock history recorded for this merchandise.', 'merchmanager' ); ?></p>
+                <p><?php esc_html_e( 'No stock history recorded for this merchandise.', 'merchmanager' ); ?></p>
             <?php else : ?>
                 <table class="widefat">
                     <thead>
                         <tr>
-                            <th><?php _e( 'Date', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Previous Stock', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'New Stock', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Change', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Reason', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'User', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Date', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Previous Stock', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'New Stock', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Change', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Reason', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'User', 'merchmanager' ); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -509,7 +519,7 @@ class Merchmanager_Merchandise_Meta_Box {
                                     <?php echo esc_html( ucfirst( $log->change_reason ) ); ?>
                                 </td>
                                 <td>
-                                    <?php echo $user ? esc_html( $user->display_name ) : __( 'System', 'merchmanager' ); ?>
+                                    <?php echo $user ? esc_html( $user->display_name ) : esc_html( __( 'System', 'merchmanager' ) ); ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

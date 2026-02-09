@@ -2,7 +2,7 @@
 /**
  * The tour model class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/models
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Tour {
 
@@ -351,7 +351,8 @@ class Merchmanager_Tour {
             );
         }
 
-        // Open the file
+        // Open the file (CSV import requires stream for fgetcsv; path is validated upload).
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         $file = fopen( $file_path, 'r' );
         if ( ! $file ) {
             return array(
@@ -370,6 +371,7 @@ class Merchmanager_Tour {
         // Read header row
         $header = fgetcsv( $file, 0, $delimiter );
         if ( ! $header ) {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
             fclose( $file );
             return array(
                 'success' => false,
@@ -404,7 +406,8 @@ class Merchmanager_Tour {
             if ( empty( $data['name'] ) || empty( $data['date'] ) ) {
                 $results['skipped']++;
                 $results['errors'][] = sprintf(
-                    __( 'Row skipped: Missing required fields (name or date). Data: %s', 'merchmanager' ),
+                    /* translators: %1$s: JSON-encoded row data */
+                    __( 'Row skipped: Missing required fields (name or date). Data: %1$s', 'merchmanager' ),
                     json_encode( $data )
                 );
                 continue;
@@ -447,7 +450,8 @@ class Merchmanager_Tour {
             if ( is_wp_error( $result ) ) {
                 $results['skipped']++;
                 $results['errors'][] = sprintf(
-                    __( 'Error saving show: %s', 'merchmanager' ),
+                    /* translators: %1$s: error message from saving the show */
+                    __( 'Error saving show: %1$s', 'merchmanager' ),
                     $result->get_error_message()
                 );
             } else {
@@ -456,11 +460,13 @@ class Merchmanager_Tour {
         }
 
         // Close the file
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         fclose( $file );
 
         // Add summary message
         $results['message'] = sprintf(
-            __( 'Import completed: %d shows imported, %d skipped.', 'merchmanager' ),
+            /* translators: 1: number of shows imported, 2: number of shows skipped */
+            __( 'Import completed: %1$d shows imported, %2$d skipped.', 'merchmanager' ),
             $results['imported'],
             $results['skipped']
         );
@@ -500,7 +506,8 @@ class Merchmanager_Tour {
             $delimiter = "\t";
         }
 
-        // Open the file
+        // Open the file (CSV export requires stream for fputcsv; path is validated).
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         $file = fopen( $file_path, 'w' );
         if ( ! $file ) {
             return array(
@@ -544,12 +551,14 @@ class Merchmanager_Tour {
         }
 
         // Close the file
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         fclose( $file );
 
         return array(
             'success' => true,
             'message' => sprintf(
-                __( 'Export completed: %d shows exported to %s.', 'merchmanager' ),
+                /* translators: 1: number of shows, 2: filename */
+                __( 'Export completed: %1$d shows exported to %2$s.', 'merchmanager' ),
                 count( $shows ),
                 basename( $file_path )
             ),

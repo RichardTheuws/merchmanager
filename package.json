@@ -1,6 +1,6 @@
 {
   "name": "merchmanager",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "WordPress plugin for merchandise sales management",
   "main": "merchmanager.php",
   "scripts": {
@@ -31,6 +31,6 @@
     "music",
     "bands"
   ],
-  "author": "Metal Business Club",
+  "author": "Theuws Consulting",
   "license": "GPL-2.0-or-later"
 }

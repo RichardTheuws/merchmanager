@@ -7,17 +7,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://example.com
+ * @link              https://theuws.com
  * @since             1.0.0
  * @package           Merchmanager
  *
  * @wordpress-plugin
- * Plugin Name:       Merchandise Sales Plugin
- * Plugin URI:        https://example.com/merchmanager
+ * Plugin Name:       MerchManager
+ * Plugin URI:        https://github.com/theuws-consulting/merch-manager
  * Description:       A comprehensive WordPress plugin for bands and music artists to manage merchandise sales during tours and events.
- * Version:           1.0.1
- * Author:            Your Name
- * Author URI:        https://example.com
+ * Version:           1.1.1
+ * Author:            Theuws Consulting
+ * Author URI:        https://theuws.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       merchmanager
@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'MERCHMANAGER_VERSION', '1.0.1' );
+define( 'MERCHMANAGER_VERSION', '1.0.5' );
 
 /**
  * Define plugin path and URL constants

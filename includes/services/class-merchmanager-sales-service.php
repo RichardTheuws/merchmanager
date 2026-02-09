@@ -2,7 +2,7 @@
 /**
  * The sales service class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/services
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Sales_Service {
 
@@ -123,9 +123,9 @@ class Merchmanager_Sales_Service {
     public function delete_sale( $sale_id ) {
         global $wpdb;
 
-        // Get sale data
+        // Get sale data (WP 6.2+ %i for table identifier).
         $table_name = $wpdb->prefix . 'msp_sales';
-        $sale = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE id = %d", $sale_id ) );
+        $sale = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE id = %d', $table_name, $sale_id ) );
 
         if ( ! $sale ) {
             return new WP_Error( 'invalid_sale', __( 'Sale not found.', 'merchmanager' ) );
@@ -184,49 +184,60 @@ class Merchmanager_Sales_Service {
         // Merge arguments
         $args = wp_parse_args( $args, $default_args );
 
-        // Build query
-        $table_name = $wpdb->prefix . 'msp_sales';
-        $query = "SELECT * FROM $table_name WHERE 1=1";
+        // Build full SQL and values for single prepare() (WP 6.2+ %i for table identifier).
+        $sql   = 'SELECT * FROM %i WHERE 1=1';
+        $values = array( $wpdb->prefix . 'msp_sales' );
 
-        // Add filters
         if ( $args['band_id'] ) {
-            $query .= $wpdb->prepare( " AND band_id = %d", $args['band_id'] );
+            $sql .= ' AND band_id = %d';
+            $values[] = $args['band_id'];
         }
         if ( $args['show_id'] ) {
-            $query .= $wpdb->prepare( " AND show_id = %d", $args['show_id'] );
+            $sql .= ' AND show_id = %d';
+            $values[] = $args['show_id'];
         }
         if ( $args['sales_page_id'] ) {
-            $query .= $wpdb->prepare( " AND sales_page_id = %d", $args['sales_page_id'] );
+            $sql .= ' AND sales_page_id = %d';
+            $values[] = $args['sales_page_id'];
         }
         if ( $args['merchandise_id'] ) {
-            $query .= $wpdb->prepare( " AND merchandise_id = %d", $args['merchandise_id'] );
+            $sql .= ' AND merchandise_id = %d';
+            $values[] = $args['merchandise_id'];
         }
         if ( $args['payment_type'] ) {
-            $query .= $wpdb->prepare( " AND payment_type = %s", $args['payment_type'] );
+            $sql .= ' AND payment_type = %s';
+            $values[] = $args['payment_type'];
         }
         if ( $args['start_date'] ) {
-            $query .= $wpdb->prepare( " AND date >= %s", $args['start_date'] );
+            $sql .= ' AND date >= %s';
+            $values[] = $args['start_date'];
         }
         if ( $args['end_date'] ) {
-            $query .= $wpdb->prepare( " AND date <= %s", $args['end_date'] );
+            $sql .= ' AND date <= %s';
+            $values[] = $args['end_date'];
         }
         if ( $args['user_id'] ) {
-            $query .= $wpdb->prepare( " AND user_id = %d", $args['user_id'] );
+            $sql .= ' AND user_id = %d';
+            $values[] = $args['user_id'];
         }
 
-        // Add order
-        $query .= " ORDER BY " . esc_sql( $args['orderby'] ) . " " . esc_sql( $args['order'] );
+        $allowed_orderby = array( 'id', 'date', 'quantity', 'price', 'band_id', 'show_id', 'sales_page_id', 'merchandise_id', 'payment_type', 'user_id' );
+        $allowed_order   = array( 'ASC', 'DESC' );
+        $orderby         = in_array( $args['orderby'], $allowed_orderby, true ) ? $args['orderby'] : 'date';
+        $order           = in_array( strtoupper( $args['order'] ), $allowed_order, true ) ? strtoupper( $args['order'] ) : 'DESC';
+        $sql            .= ' ORDER BY ' . $orderby . ' ' . $order;
 
-        // Add limit
         if ( $args['limit'] > 0 ) {
-            $query .= $wpdb->prepare( " LIMIT %d", $args['limit'] );
+            $sql .= ' LIMIT %d';
+            $values[] = $args['limit'];
             if ( $args['offset'] > 0 ) {
-                $query .= $wpdb->prepare( " OFFSET %d", $args['offset'] );
+                $sql .= ' OFFSET %d';
+                $values[] = $args['offset'];
             }
         }
 
-        // Get sales
-        $sales = $wpdb->get_results( $query );
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Dynamic query from whitelisted fragments and placeholders only.
+        $sales = $wpdb->get_results( $wpdb->prepare( $sql, ...$values ) );
 
         return $sales;
     }
@@ -257,85 +268,95 @@ class Merchmanager_Sales_Service {
         // Merge arguments
         $args = wp_parse_args( $args, $default_args );
 
-        // Build query
-        $table_name = $wpdb->prefix . 'msp_sales';
-        $query = "SELECT COUNT(*) as count, SUM(quantity) as total_quantity, SUM(price * quantity) as total_amount";
+        // Whitelist group_by to avoid unescaped SQL.
+        $allowed_group_by = array( 'day', 'week', 'month', 'merchandise', 'payment_type' );
+        $group_by        = in_array( $args['group_by'], $allowed_group_by, true ) ? $args['group_by'] : '';
 
-        // Add group by
-        if ( $args['group_by'] ) {
-            switch ( $args['group_by'] ) {
+        // Build full SQL and values for single prepare() (WP 6.2+ %i for table identifier).
+        $sql   = 'SELECT COUNT(*) as count, SUM(quantity) as total_quantity, SUM(price * quantity) as total_amount';
+        $values = array( $wpdb->prefix . 'msp_sales' );
+
+        if ( $group_by ) {
+            switch ( $group_by ) {
                 case 'day':
-                    $query .= ", DATE(date) as day";
+                    $sql .= ', DATE(date) as day';
                     break;
                 case 'week':
-                    $query .= ", YEARWEEK(date) as week";
+                    $sql .= ', YEARWEEK(date) as week';
                     break;
                 case 'month':
-                    $query .= ", DATE_FORMAT(date, '%Y-%m') as month";
+                    $sql .= ", DATE_FORMAT(date, '%Y-%m') as month";
                     break;
                 case 'merchandise':
-                    $query .= ", merchandise_id";
+                    $sql .= ', merchandise_id';
                     break;
                 case 'payment_type':
-                    $query .= ", payment_type";
+                    $sql .= ', payment_type';
                     break;
             }
         }
 
-        $query .= " FROM $table_name WHERE 1=1";
+        $sql .= ' FROM %i WHERE 1=1';
 
-        // Add filters
         if ( $args['band_id'] ) {
-            $query .= $wpdb->prepare( " AND band_id = %d", $args['band_id'] );
+            $sql .= ' AND band_id = %d';
+            $values[] = $args['band_id'];
         }
         if ( $args['show_id'] ) {
-            $query .= $wpdb->prepare( " AND show_id = %d", $args['show_id'] );
+            $sql .= ' AND show_id = %d';
+            $values[] = $args['show_id'];
         }
         if ( $args['sales_page_id'] ) {
-            $query .= $wpdb->prepare( " AND sales_page_id = %d", $args['sales_page_id'] );
+            $sql .= ' AND sales_page_id = %d';
+            $values[] = $args['sales_page_id'];
         }
         if ( $args['merchandise_id'] ) {
-            $query .= $wpdb->prepare( " AND merchandise_id = %d", $args['merchandise_id'] );
+            $sql .= ' AND merchandise_id = %d';
+            $values[] = $args['merchandise_id'];
         }
         if ( $args['payment_type'] ) {
-            $query .= $wpdb->prepare( " AND payment_type = %s", $args['payment_type'] );
+            $sql .= ' AND payment_type = %s';
+            $values[] = $args['payment_type'];
         }
         if ( $args['start_date'] ) {
-            $query .= $wpdb->prepare( " AND date >= %s", $args['start_date'] );
+            $sql .= ' AND date >= %s';
+            $values[] = $args['start_date'];
         }
         if ( $args['end_date'] ) {
-            $query .= $wpdb->prepare( " AND date <= %s", $args['end_date'] );
+            $sql .= ' AND date <= %s';
+            $values[] = $args['end_date'];
         }
         if ( $args['user_id'] ) {
-            $query .= $wpdb->prepare( " AND user_id = %d", $args['user_id'] );
+            $sql .= ' AND user_id = %d';
+            $values[] = $args['user_id'];
         }
 
-        // Add group by
-        if ( $args['group_by'] ) {
-            switch ( $args['group_by'] ) {
+        if ( $group_by ) {
+            switch ( $group_by ) {
                 case 'day':
-                    $query .= " GROUP BY day ORDER BY day ASC";
+                    $sql .= ' GROUP BY day ORDER BY day ASC';
                     break;
                 case 'week':
-                    $query .= " GROUP BY week ORDER BY week ASC";
+                    $sql .= ' GROUP BY week ORDER BY week ASC';
                     break;
                 case 'month':
-                    $query .= " GROUP BY month ORDER BY month ASC";
+                    $sql .= ' GROUP BY month ORDER BY month ASC';
                     break;
                 case 'merchandise':
-                    $query .= " GROUP BY merchandise_id ORDER BY total_amount DESC";
+                    $sql .= ' GROUP BY merchandise_id ORDER BY total_amount DESC';
                     break;
                 case 'payment_type':
-                    $query .= " GROUP BY payment_type ORDER BY total_amount DESC";
+                    $sql .= ' GROUP BY payment_type ORDER BY total_amount DESC';
                     break;
             }
         }
 
-        // Get summary
-        $summary = $wpdb->get_results( $query );
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Dynamic query from whitelisted fragments and placeholders only.
+        $summary = $wpdb->get_results( $wpdb->prepare( $sql, ...$values ) );
 
         // If grouped by merchandise, add merchandise details
-        if ( $args['group_by'] === 'merchandise' && ! empty( $summary ) ) {
+        if ( $group_by === 'merchandise' && ! empty( $summary ) ) {
+            require_once MERCHMANAGER_PLUGIN_DIR . 'includes/models/class-merchmanager-merchandise.php';
             foreach ( $summary as &$item ) {
                 if ( isset( $item->merchandise_id ) ) {
                     $merchandise = new Merchmanager_Merchandise( $item->merchandise_id );
@@ -443,7 +464,8 @@ class Merchmanager_Sales_Service {
             $delimiter = "\t";
         }
         
-        // Open the file
+        // Open the file (CSV export requires stream for fputcsv; path is validated temp file).
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         $file = fopen( $file_path, 'w' );
         if ( ! $file ) {
             return array(
@@ -503,12 +525,14 @@ class Merchmanager_Sales_Service {
         }
         
         // Close the file
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         fclose( $file );
         
         return array(
             'success' => true,
             'message' => sprintf(
-                __( 'Export completed: %d sales exported to %s.', 'merchmanager' ),
+                /* translators: 1: number of sales, 2: filename */
+                __( 'Export completed: %1$d sales exported to %2$s.', 'merchmanager' ),
                 count( $sales ),
                 basename( $file_path )
             ),
@@ -528,7 +552,11 @@ class Merchmanager_Sales_Service {
         $required_fields = array( 'merchandise_id', 'quantity', 'price', 'payment_type', 'band_id' );
         foreach ( $required_fields as $field ) {
             if ( ! isset( $sale_data[ $field ] ) ) {
-                return new WP_Error( 'missing_field', sprintf( __( 'Missing required field: %s', 'merchmanager' ), $field ) );
+                return new WP_Error( 'missing_field', sprintf(
+                    /* translators: %1$s: field name */
+                    __( 'Missing required field: %1$s', 'merchmanager' ),
+                    $field
+                ) );
             }
         }
 
@@ -597,7 +625,12 @@ class Merchmanager_Sales_Service {
         }
 
         // Update stock
-        $notes = sprintf( __( 'Stock change due to %s (ID: %d)', 'merchmanager' ), $reason, $reference_id );
+        $notes = sprintf(
+            /* translators: 1: reason for stock change, 2: reference ID (e.g. sale ID) */
+            __( 'Stock change due to %1$s (ID: %2$d)', 'merchmanager' ),
+            $reason,
+            $reference_id
+        );
         $result = $merchandise->update_stock( $quantity, $reason, get_current_user_id(), $notes );
 
         return $result;

@@ -1,0 +1,13 @@
+/node_modules export-ignore
+/vendor export-ignore
+/tests export-ignore
+/.github export-ignore
+/cypress.config.js export-ignore
+/phpunit.xml export-ignore
+/Dockerfile* export-ignore
+/docker-compose.yml export-ignore
+/docs export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.editorconfig export-ignore
+.stylelintrc.js export-ignore

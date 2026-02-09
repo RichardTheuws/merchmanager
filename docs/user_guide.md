@@ -40,12 +40,14 @@ The plugin implements three user roles:
 
 ### 2.2 Initial Setup
 
-After activating the plugin, you'll need to complete the initial setup:
+After activating the plugin, a **Setup Wizard** will guide you through the initial setup. You can also configure manually:
 
-1. Go to Merchandise Sales > Settings
-2. Configure general settings (currency, date format, etc.)
+1. Go to Merchandise Sales > Setup Wizard (or run it from Settings)
+2. Or go to Merchandise Sales > Settings to configure general settings (currency, date format, etc.)
 3. Set up user roles and permissions
 4. Create your first band
+
+**Note:** The plugin uses URL slugs for custom post types (`bands`, `tours`, `shows`, `merchandise`, `sales-pages`). If your site already has pages with these slugs, there may be URL conflicts. Contact support if you experience routing issues.
 
 ### 2.3 Dashboard Overview
 

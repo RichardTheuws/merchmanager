@@ -2,7 +2,7 @@
 /**
  * The show model class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/models
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Show {
 
@@ -333,7 +333,7 @@ class Merchmanager_Show {
      */
     public static function get_upcoming( $limit = 10 ) {
         // Get current date
-        $current_date = date( 'Y-m-d H:i:s' );
+        $current_date = gmdate( 'Y-m-d H:i:s' );
 
         // Default arguments
         $args = array(
@@ -411,13 +411,14 @@ class Merchmanager_Show {
             return array();
         }
 
-        // Get sales from database
-        $table_name = $wpdb->prefix . 'msp_sales';
-        $query = $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE show_id = %d ORDER BY date DESC",
-            $this->id
+        // Get sales from database (WP 6.2+ %i for identifier).
+        $sales = $wpdb->get_results(
+            $wpdb->prepare(
+                'SELECT * FROM %i WHERE show_id = %d ORDER BY date DESC',
+                $wpdb->prefix . 'msp_sales',
+                $this->id
+            )
         );
-        $sales = $wpdb->get_results( $query );
 
         return $sales;
     }
@@ -436,13 +437,14 @@ class Merchmanager_Show {
             return 0;
         }
 
-        // Get total sales amount from database
-        $table_name = $wpdb->prefix . 'msp_sales';
-        $query = $wpdb->prepare(
-            "SELECT SUM(price * quantity) FROM $table_name WHERE show_id = %d",
-            $this->id
+        // Get total sales amount from database (WP 6.2+ %i for identifier).
+        $total = $wpdb->get_var(
+            $wpdb->prepare(
+                'SELECT SUM(price * quantity) FROM %i WHERE show_id = %d',
+                $wpdb->prefix . 'msp_sales',
+                $this->id
+            )
         );
-        $total = $wpdb->get_var( $query );
 
         return (float) $total;
     }
@@ -528,7 +530,7 @@ class Merchmanager_Show {
             // Use default expiry date from settings
             $options = get_option( 'msp_settings', array() );
             $default_expiry_days = isset( $options['sales_page_expiry'] ) ? $options['sales_page_expiry'] : 7;
-            $expiry_date = date( 'Y-m-d H:i:s', strtotime( '+' . $default_expiry_days . ' days' ) );
+            $expiry_date = gmdate( 'Y-m-d H:i:s', strtotime( '+' . $default_expiry_days . ' days' ) );
             $sales_page->set_expiry_date( $expiry_date );
         }
 

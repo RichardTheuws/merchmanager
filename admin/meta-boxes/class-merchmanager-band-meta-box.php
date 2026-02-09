@@ -2,7 +2,7 @@
 /**
  * The band meta box class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,8 +16,13 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/admin/meta-boxes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager_Band_Meta_Box {
 
     /**
@@ -90,7 +95,7 @@ class Merchmanager_Band_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p class="description">
-                <?php _e( 'Enter the basic details for this band.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Enter the basic details for this band.', 'merchmanager' ); ?>
             </p>
         </div>
         <?php
@@ -114,28 +119,28 @@ class Merchmanager_Band_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_band_contact_name">
-                <?php _e( 'Contact Name', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Contact Name', 'merchmanager' ); ?>
             </label>
             <input type="text" id="msp_band_contact_name" name="msp_band_contact_name" value="<?php echo esc_attr( $contact_name ); ?>" class="regular-text">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_band_contact_email">
-                <?php _e( 'Contact Email', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Contact Email', 'merchmanager' ); ?>
             </label>
             <input type="email" id="msp_band_contact_email" name="msp_band_contact_email" value="<?php echo esc_attr( $contact_email ); ?>" class="regular-text">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_band_contact_phone">
-                <?php _e( 'Contact Phone', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Contact Phone', 'merchmanager' ); ?>
             </label>
             <input type="text" id="msp_band_contact_phone" name="msp_band_contact_phone" value="<?php echo esc_attr( $contact_phone ); ?>" class="regular-text">
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_band_website">
-                <?php _e( 'Website', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Website', 'merchmanager' ); ?>
             </label>
             <input type="url" id="msp_band_website" name="msp_band_website" value="<?php echo esc_attr( $website ); ?>" class="regular-text">
         </div>
@@ -169,7 +174,7 @@ class Merchmanager_Band_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p class="description">
-                <?php _e( 'Enter the social media links for this band.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Enter the social media links for this band.', 'merchmanager' ); ?>
             </p>
         </div>
 
@@ -184,7 +189,7 @@ class Merchmanager_Band_Meta_Box {
 
         <div class="msp-meta-box-field">
             <label for="msp_band_social_media_other">
-                <?php _e( 'Other', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Other', 'merchmanager' ); ?>
             </label>
             <input type="url" id="msp_band_social_media_other" name="msp_band_social_media[other]" value="<?php echo isset( $social_media['other'] ) ? esc_attr( $social_media['other'] ) : ''; ?>" class="regular-text">
         </div>
@@ -219,22 +224,22 @@ class Merchmanager_Band_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p class="description">
-                <?php _e( 'Associate users with this band. These users will have access to manage this band\'s data.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Associate users with this band. These users will have access to manage this band\'s data.', 'merchmanager' ); ?>
             </p>
         </div>
 
         <table class="widefat" id="msp-band-users-table">
             <thead>
                 <tr>
-                    <th><?php _e( 'User', 'merchmanager' ); ?></th>
-                    <th><?php _e( 'Role', 'merchmanager' ); ?></th>
-                    <th><?php _e( 'Actions', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'User', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'Role', 'merchmanager' ); ?></th>
+                    <th><?php esc_html_e( 'Actions', 'merchmanager' ); ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php if ( empty( $associated_users ) ) : ?>
                     <tr class="msp-no-users">
-                        <td colspan="3"><?php _e( 'No users associated with this band.', 'merchmanager' ); ?></td>
+                        <td colspan="3"><?php esc_html_e( 'No users associated with this band.', 'merchmanager' ); ?></td>
                     </tr>
                 <?php else : ?>
                     <?php foreach ( $associated_users as $user ) : ?>
@@ -253,7 +258,7 @@ class Merchmanager_Band_Meta_Box {
                                 </select>
                             </td>
                             <td>
-                                <button type="button" class="button msp-remove-user"><?php _e( 'Remove', 'merchmanager' ); ?></button>
+                                <button type="button" class="button msp-remove-user"><?php esc_html_e( 'Remove', 'merchmanager' ); ?></button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -263,7 +268,7 @@ class Merchmanager_Band_Meta_Box {
                 <tr>
                     <td>
                         <select id="msp-add-user-select">
-                            <option value=""><?php _e( 'Select a user...', 'merchmanager' ); ?></option>
+                            <option value=""><?php esc_html_e( 'Select a user...', 'merchmanager' ); ?></option>
                             <?php foreach ( $all_users as $user ) : ?>
                                 <?php
                                 // Skip users already associated with this band
@@ -294,7 +299,7 @@ class Merchmanager_Band_Meta_Box {
                         </select>
                     </td>
                     <td>
-                        <button type="button" class="button button-primary" id="msp-add-user"><?php _e( 'Add User', 'merchmanager' ); ?></button>
+                        <button type="button" class="button button-primary" id="msp-add-user"><?php esc_html_e( 'Add User', 'merchmanager' ); ?></button>
                     </td>
                 </tr>
             </tfoot>
@@ -327,7 +332,7 @@ class Merchmanager_Band_Meta_Box {
                     html += '><?php echo esc_html( $role_label ); ?></option>';
                 <?php endforeach; ?>
                 html += '</select></td>';
-                html += '<td><button type="button" class="button msp-remove-user"><?php _e( 'Remove', 'merchmanager' ); ?></button></td>';
+                html += '<td><button type="button" class="button msp-remove-user"><?php esc_html_e( 'Remove', 'merchmanager' ); ?></button></td>';
                 html += '</tr>';
                 
                 $('#msp-band-users-table tbody').append(html);
@@ -343,7 +348,7 @@ class Merchmanager_Band_Meta_Box {
                 // Add "no users" row if no users left
                 if ($('#msp-band-users-table tbody tr').length === 0) {
                     var html = '<tr class="msp-no-users">';
-                    html += '<td colspan="3"><?php _e( 'No users associated with this band.', 'merchmanager' ); ?></td>';
+                    html += '<td colspan="3"><?php esc_html_e( 'No users associated with this band.', 'merchmanager' ); ?></td>';
                     html += '</tr>';
                     
                     $('#msp-band-users-table tbody').append(html);

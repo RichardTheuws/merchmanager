@@ -2,7 +2,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -17,7 +17,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/public
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Public {
 
@@ -154,6 +154,11 @@ class Merchmanager_Public {
 			return '<p>' . __( 'This sales page has expired.', 'merchmanager' ) . '</p>';
 		}
 		
+		// Start session if needed (for access code verification). Avoid "headers already sent" by only starting when safe.
+		if ( ! headers_sent() && ! session_id() ) {
+			@session_start();
+		}
+		
 		// Get sales page content
 		ob_start();
 		include plugin_dir_path( __FILE__ ) . 'partials/merchmanager-public-sales-page.php';
@@ -178,8 +183,11 @@ class Merchmanager_Public {
 			return '<p>' . __( 'You must be logged in to view the band dashboard.', 'merchmanager' ) . '</p>';
 		}
 		
-		// Get band ID
+		// Get band ID from shortcode atts or query string
 		$band_id = absint( $atts['band_id'] );
+		if ( ! $band_id && isset( $_GET['band_id'] ) ) {
+			$band_id = absint( $_GET['band_id'] );
+		}
 		
 		// If no band ID is provided, try to get the user's band
 		if ( ! $band_id ) {

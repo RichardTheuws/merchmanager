@@ -2,7 +2,7 @@
 /**
  * The sales page model class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,7 +16,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/models
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Sales_Page {
 
@@ -314,13 +314,14 @@ class Merchmanager_Sales_Page {
             return array();
         }
 
-        // Get sales from database
-        $table_name = $wpdb->prefix . 'msp_sales';
-        $query = $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE sales_page_id = %d ORDER BY date DESC",
-            $this->id
+        // Get sales from database (WP 6.2+ %i for identifier).
+        $sales = $wpdb->get_results(
+            $wpdb->prepare(
+                'SELECT * FROM %i WHERE sales_page_id = %d ORDER BY date DESC',
+                $wpdb->prefix . 'msp_sales',
+                $this->id
+            )
         );
-        $sales = $wpdb->get_results( $query );
 
         return $sales;
     }
@@ -339,13 +340,14 @@ class Merchmanager_Sales_Page {
             return 0;
         }
 
-        // Get total sales amount from database
-        $table_name = $wpdb->prefix . 'msp_sales';
-        $query = $wpdb->prepare(
-            "SELECT SUM(price * quantity) FROM $table_name WHERE sales_page_id = %d",
-            $this->id
+        // Get total sales amount from database (WP 6.2+ %i for identifier).
+        $total = $wpdb->get_var(
+            $wpdb->prepare(
+                'SELECT SUM(price * quantity) FROM %i WHERE sales_page_id = %d',
+                $wpdb->prefix . 'msp_sales',
+                $this->id
+            )
         );
-        $total = $wpdb->get_var( $query );
 
         return (float) $total;
     }
@@ -365,7 +367,7 @@ class Merchmanager_Sales_Page {
         // Generate access code
         $access_code = '';
         for ( $i = 0; $i < $length; $i++ ) {
-            $access_code .= $characters[ rand( 0, $characters_length - 1 ) ];
+            $access_code .= $characters[ wp_rand( 0, $characters_length - 1 ) ];
         }
         
         // Set access code

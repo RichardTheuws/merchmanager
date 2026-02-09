@@ -2,7 +2,7 @@
 /**
  * The sales page meta box class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
@@ -16,8 +16,13 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/admin/meta-boxes
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Merchmanager_Sales_Page_Meta_Box {
 
     /**
@@ -142,10 +147,10 @@ class Merchmanager_Sales_Page_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_sales_page_show_id">
-                <?php _e( 'Show', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Show', 'merchmanager' ); ?>
             </label>
             <select id="msp_sales_page_show_id" name="msp_sales_page_show_id" class="regular-text">
-                <option value=""><?php _e( 'Select a show...', 'merchmanager' ); ?></option>
+                <option value=""><?php esc_html_e( 'Select a show...', 'merchmanager' ); ?></option>
                 <?php foreach ( $shows as $show ) : ?>
                     <option value="<?php echo esc_attr( $show->get_id() ); ?>" <?php selected( $show_id, $show->get_id() ); ?> data-band-id="<?php echo esc_attr( $show->get_band() ? $show->get_band()->get_id() : '' ); ?>">
                         <?php echo esc_html( $show->get_name() ); ?> - 
@@ -159,22 +164,22 @@ class Merchmanager_Sales_Page_Meta_Box {
                     </option>
                 <?php endforeach; ?>
             </select>
-            <p class="description"><?php _e( 'Select the show this sales page is for.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Select the show this sales page is for.', 'merchmanager' ); ?></p>
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_sales_page_band_id">
-                <?php _e( 'Band', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Band', 'merchmanager' ); ?>
             </label>
             <select id="msp_sales_page_band_id" name="msp_sales_page_band_id" class="regular-text">
-                <option value=""><?php _e( 'Select a band...', 'merchmanager' ); ?></option>
+                <option value=""><?php esc_html_e( 'Select a band...', 'merchmanager' ); ?></option>
                 <?php foreach ( $bands as $band ) : ?>
                     <option value="<?php echo esc_attr( $band->get_id() ); ?>" <?php selected( $band_id, $band->get_id() ); ?>>
                         <?php echo esc_html( $band->get_name() ); ?>
                     </option>
                 <?php endforeach; ?>
             </select>
-            <p class="description"><?php _e( 'Select the band this sales page is for.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Select the band this sales page is for.', 'merchmanager' ); ?></p>
         </div>
 
         <script>
@@ -237,7 +242,7 @@ class Merchmanager_Sales_Page_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p class="description">
-                <?php _e( 'Select the merchandise items to include in this sales page.', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Select the merchandise items to include in this sales page.', 'merchmanager' ); ?>
             </p>
         </div>
 
@@ -245,10 +250,10 @@ class Merchmanager_Sales_Page_Meta_Box {
             <div class="msp-meta-box-field">
                 <p>
                     <?php if ( $band_id ) : ?>
-                        <?php _e( 'No merchandise items found for this band.', 'merchmanager' ); ?>
-                        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=msp_merchandise&band_id=' . $band_id ) ); ?>" class="button"><?php _e( 'Add Merchandise', 'merchmanager' ); ?></a>
+                        <?php esc_html_e( 'No merchandise items found for this band.', 'merchmanager' ); ?>
+                        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=msp_merchandise&band_id=' . $band_id ) ); ?>" class="button"><?php esc_html_e( 'Add Merchandise', 'merchmanager' ); ?></a>
                     <?php else : ?>
-                        <?php _e( 'Please select a band first.', 'merchmanager' ); ?>
+                        <?php esc_html_e( 'Please select a band first.', 'merchmanager' ); ?>
                     <?php endif; ?>
                 </p>
             </div>
@@ -260,13 +265,13 @@ class Merchmanager_Sales_Page_Meta_Box {
                             <th class="check-column">
                                 <input type="checkbox" id="msp-select-all-merchandise">
                             </th>
-                            <th><?php _e( 'Name', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'SKU', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Price', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Stock', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Category', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Size', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Color', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Name', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'SKU', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Price', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Stock', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Category', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Size', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Color', 'merchmanager' ); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -332,36 +337,36 @@ class Merchmanager_Sales_Page_Meta_Box {
         // Get default expiry date
         $options = get_option( 'msp_settings', array() );
         $default_expiry_days = isset( $options['sales_page_expiry'] ) ? $options['sales_page_expiry'] : 7;
-        $default_expiry_date = date( 'Y-m-d\TH:i', strtotime( '+' . $default_expiry_days . ' days' ) );
+        $default_expiry_date = gmdate( 'Y-m-d\TH:i', strtotime( '+' . $default_expiry_days . ' days' ) );
 
         // Render fields
         ?>
         <div class="msp-meta-box-field">
             <label for="msp_sales_page_status">
-                <?php _e( 'Status', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Status', 'merchmanager' ); ?>
             </label>
             <select id="msp_sales_page_status" name="msp_sales_page_status" class="regular-text">
-                <option value="active" <?php selected( $status, 'active' ); ?>><?php _e( 'Active', 'merchmanager' ); ?></option>
-                <option value="inactive" <?php selected( $status, 'inactive' ); ?>><?php _e( 'Inactive', 'merchmanager' ); ?></option>
+                <option value="active" <?php selected( $status, 'active' ); ?>><?php esc_html_e( 'Active', 'merchmanager' ); ?></option>
+                <option value="inactive" <?php selected( $status, 'inactive' ); ?>><?php esc_html_e( 'Inactive', 'merchmanager' ); ?></option>
             </select>
-            <p class="description"><?php _e( 'Inactive sales pages cannot be accessed.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Inactive sales pages cannot be accessed.', 'merchmanager' ); ?></p>
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_sales_page_access_code">
-                <?php _e( 'Access Code', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Access Code', 'merchmanager' ); ?>
             </label>
             <input type="text" id="msp_sales_page_access_code" name="msp_sales_page_access_code" value="<?php echo esc_attr( $access_code ); ?>" class="regular-text">
-            <button type="button" id="msp-generate-access-code" class="button"><?php _e( 'Generate', 'merchmanager' ); ?></button>
-            <p class="description"><?php _e( 'If set, users will need to enter this code to access the sales page. Leave blank for public access.', 'merchmanager' ); ?></p>
+            <button type="button" id="msp-generate-access-code" class="button"><?php esc_html_e( 'Generate', 'merchmanager' ); ?></button>
+            <p class="description"><?php esc_html_e( 'If set, users will need to enter this code to access the sales page. Leave blank for public access.', 'merchmanager' ); ?></p>
         </div>
 
         <div class="msp-meta-box-field">
             <label for="msp_sales_page_expiry_date">
-                <?php _e( 'Expiry Date', 'merchmanager' ); ?>
+                <?php esc_html_e( 'Expiry Date', 'merchmanager' ); ?>
             </label>
-            <input type="datetime-local" id="msp_sales_page_expiry_date" name="msp_sales_page_expiry_date" value="<?php echo esc_attr( $expiry_date ? date( 'Y-m-d\TH:i', strtotime( $expiry_date ) ) : $default_expiry_date ); ?>" class="regular-text">
-            <p class="description"><?php _e( 'The sales page will become inactive after this date.', 'merchmanager' ); ?></p>
+            <input type="datetime-local" id="msp_sales_page_expiry_date" name="msp_sales_page_expiry_date" value="<?php echo esc_attr( $expiry_date ? gmdate( 'Y-m-d\TH:i', strtotime( $expiry_date ) ) : $default_expiry_date ); ?>" class="regular-text">
+            <p class="description"><?php esc_html_e( 'The sales page will become inactive after this date.', 'merchmanager' ); ?></p>
         </div>
 
         <script>
@@ -407,31 +412,31 @@ class Merchmanager_Sales_Page_Meta_Box {
         // Render fields
         ?>
         <div class="msp-meta-box-field">
-            <h3><?php _e( 'Sales Summary', 'merchmanager' ); ?></h3>
+            <h3><?php esc_html_e( 'Sales Summary', 'merchmanager' ); ?></h3>
             <p>
-                <strong><?php _e( 'Total Sales:', 'merchmanager' ); ?></strong>
+                <strong><?php esc_html_e( 'Total Sales:', 'merchmanager' ); ?></strong>
                 <?php echo esc_html( count( $sales ) ); ?>
             </p>
             <p>
-                <strong><?php _e( 'Total Amount:', 'merchmanager' ); ?></strong>
+                <strong><?php esc_html_e( 'Total Amount:', 'merchmanager' ); ?></strong>
                 <?php echo esc_html( $currency_symbol . number_format( $total_amount, 2 ) ); ?>
             </p>
         </div>
 
         <div class="msp-meta-box-field">
-            <h3><?php _e( 'Sales', 'merchmanager' ); ?></h3>
+            <h3><?php esc_html_e( 'Sales', 'merchmanager' ); ?></h3>
             <?php if ( empty( $sales ) ) : ?>
-                <p><?php _e( 'No sales recorded for this sales page.', 'merchmanager' ); ?></p>
+                <p><?php esc_html_e( 'No sales recorded for this sales page.', 'merchmanager' ); ?></p>
             <?php else : ?>
                 <table class="widefat">
                     <thead>
                         <tr>
-                            <th><?php _e( 'Date', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Merchandise', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Quantity', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Price', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Total', 'merchmanager' ); ?></th>
-                            <th><?php _e( 'Payment Type', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Date', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Merchandise', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Quantity', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Price', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Total', 'merchmanager' ); ?></th>
+                            <th><?php esc_html_e( 'Payment Type', 'merchmanager' ); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -467,8 +472,8 @@ class Merchmanager_Sales_Page_Meta_Box {
 
         <div class="msp-meta-box-field">
             <p>
-                <a href="<?php echo esc_url( $sales_page->get_url() ); ?>" class="button button-primary" target="_blank"><?php _e( 'View Sales Page', 'merchmanager' ); ?></a>
-                <a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=sales&sales_page_id=' . $post->ID ) ); ?>" class="button"><?php _e( 'View Sales Report', 'merchmanager' ); ?></a>
+                <a href="<?php echo esc_url( $sales_page->get_url() ); ?>" class="button button-primary" target="_blank"><?php esc_html_e( 'View Sales Page', 'merchmanager' ); ?></a>
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=sales&sales_page_id=' . $post->ID ) ); ?>" class="button"><?php esc_html_e( 'View Sales Report', 'merchmanager' ); ?></a>
             </p>
         </div>
         <?php
@@ -490,18 +495,18 @@ class Merchmanager_Sales_Page_Meta_Box {
         ?>
         <div class="msp-meta-box-field">
             <p>
-                <strong><?php _e( 'Shortcode:', 'merchmanager' ); ?></strong>
+                <strong><?php esc_html_e( 'Shortcode:', 'merchmanager' ); ?></strong>
                 <code><?php echo esc_html( $shortcode ); ?></code>
             </p>
-            <p class="description"><?php _e( 'Use this shortcode to display the sales page on any post or page.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Use this shortcode to display the sales page on any post or page.', 'merchmanager' ); ?></p>
         </div>
 
         <div class="msp-meta-box-field">
             <p>
-                <strong><?php _e( 'URL:', 'merchmanager' ); ?></strong><br>
+                <strong><?php esc_html_e( 'URL:', 'merchmanager' ); ?></strong><br>
                 <a href="<?php echo esc_url( $url ); ?>" target="_blank"><?php echo esc_html( $url ); ?></a>
             </p>
-            <p class="description"><?php _e( 'Direct link to the sales page.', 'merchmanager' ); ?></p>
+            <p class="description"><?php esc_html_e( 'Direct link to the sales page.', 'merchmanager' ); ?></p>
         </div>
         <?php
     }

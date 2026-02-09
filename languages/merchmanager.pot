@@ -1,0 +1,2818 @@
+# Copyright (C) 2026 Theuws Consulting
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: MerchManager 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/merch-manager\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-07T22:37:54+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: merchmanager\n"
+
+#. Plugin Name of the plugin
+#: merchmanager.php
+msgid "MerchManager"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: merchmanager.php
+msgid "https://github.com/theuws-consulting/merch-manager"
+msgstr ""
+
+#. Description of the plugin
+#: merchmanager.php
+msgid "A comprehensive WordPress plugin for bands and music artists to manage merchandise sales during tours and events."
+msgstr ""
+
+#. Author of the plugin
+#: merchmanager.php
+#: admin/partials/merchmanager-admin-footer.php:25
+msgid "Theuws Consulting"
+msgstr ""
+
+#. Author URI of the plugin
+#: merchmanager.php
+msgid "https://theuws.com"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:113
+#: admin/class-merchmanager-admin.php:114
+msgid "Merchandise Sales"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:125
+#: admin/class-merchmanager-admin.php:126
+#: admin/partials/merchmanager-admin-onboarding.php:163
+msgid "Dashboard"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:135
+#: admin/class-merchmanager-admin.php:136
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:84
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:422
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:75
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:266
+#: admin/partials/merchmanager-admin-onboarding.php:168
+msgid "Sales"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:145
+#: admin/class-merchmanager-admin.php:146
+#: admin/partials/merchmanager-admin-onboarding.php:173
+msgid "Reports"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:155
+#: admin/class-merchmanager-admin.php:156
+#: admin/class-merchmanager-admin.php:447
+#: admin/partials/merchmanager-admin-onboarding.php:178
+msgid "Settings"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:165
+#: admin/class-merchmanager-admin.php:166
+msgid "Setup Wizard"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:180
+#: admin/class-merchmanager-admin.php:192
+#: admin/class-merchmanager-admin.php:204
+#: admin/class-merchmanager-admin.php:243
+#: admin/class-merchmanager-admin.php:255
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:271
+msgid "MerchManager settings."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:344
+#: admin/class-merchmanager-admin.php:387
+#: admin/class-merchmanager-admin.php:417
+msgid "You do not have sufficient permissions."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:347
+#: admin/class-merchmanager-admin.php:384
+#: admin/class-merchmanager-admin.php:414
+#: admin/partials/merchmanager-admin-reports.php:547
+msgid "Security check failed."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:366
+#: admin/class-merchmanager-admin.php:429
+msgid "Export failed."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:391
+#: admin/class-merchmanager-admin.php:421
+msgid "Invalid tour."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:561
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:418
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:481
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:429
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:273
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:187
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:257
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:294
+#: admin/partials/merchmanager-admin-reports.php:318
+#: includes/services/class-merchmanager-report-service.php:463
+#: includes/services/class-merchmanager-report-service.php:614
+msgid "Date"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:561
+#: admin/class-merchmanager-admin.php:586
+#: admin/partials/merchmanager-admin-reports.php:158
+#: admin/partials/merchmanager-admin-reports.php:199
+#: admin/partials/merchmanager-admin-reports.php:319
+#: admin/partials/merchmanager-admin-reports.php:382
+#: admin/partials/merchmanager-admin-reports.php:494
+#: admin/partials/merchmanager-admin-sales.php:215
+#: public/partials/merchmanager-public-sales-recording.php:253
+msgid "Item"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:561
+#: admin/partials/merchmanager-admin-sales.php:217
+msgid "Qty"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:561
+msgid "Amount"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:569
+msgid "No recent sales found."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:586
+msgid "Sold"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:586
+#: admin/partials/merchmanager-admin-reports.php:496
+#: admin/partials/merchmanager-admin-reports.php:516
+msgid "Revenue"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:588
+#: admin/partials/merchmanager-admin-reports.php:502
+msgid "Unknown"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:595
+msgid "No top selling items found."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:638
+msgid "No upcoming shows found."
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:653
+#: admin/partials/merchmanager-admin-sales.php:191
+#: public/partials/merchmanager-public-sales-page.php:179
+#: public/partials/merchmanager-public-sales-recording.php:223
+#, php-format
+msgid "%d in stock"
+msgstr ""
+
+#: admin/class-merchmanager-admin.php:657
+msgid "No low stock alerts."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:41
+msgid "Band Details"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:50
+msgid "Contact Information"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:59
+msgid "Social Media"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:68
+msgid "Associated Users"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:93
+msgid "Enter the basic details for this band."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:117
+msgid "Contact Name"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:124
+msgid "Contact Email"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:131
+msgid "Contact Phone"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:138
+msgid "Website"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:158
+msgid "Facebook"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:159
+msgid "Twitter"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:160
+msgid "Instagram"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:161
+msgid "YouTube"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:162
+msgid "Spotify"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:163
+msgid "Apple Music"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:164
+msgid "Bandcamp"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:165
+msgid "SoundCloud"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:172
+msgid "Enter the social media links for this band."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:187
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:111
+#: admin/partials/merchmanager-admin-reports.php:88
+#: admin/partials/merchmanager-admin-sales.php:264
+#: public/partials/merchmanager-public-sales-page.php:214
+#: public/partials/merchmanager-public-sales-recording.php:309
+msgid "Other"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:212
+msgid "Manager"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:213
+msgid "Tour Manager"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:214
+msgid "Merchandise Manager"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:215
+msgid "Band Member"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:222
+msgid "Associate users with this band. These users will have access to manage this band's data."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:229
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:486
+#: admin/partials/merchmanager-admin-reports.php:324
+msgid "User"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:230
+msgid "Role"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:231
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:190
+#: admin/partials/merchmanager-admin-reports.php:162
+#: admin/partials/merchmanager-admin-reports.php:202
+#: admin/partials/merchmanager-admin-reports.php:387
+#: admin/partials/merchmanager-admin-sales.php:219
+#: public/partials/merchmanager-public-sales-recording.php:257
+msgid "Actions"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:237
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:346
+msgid "No users associated with this band."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:256
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:330
+#: admin/partials/merchmanager-admin-sales.php:243
+#: public/partials/merchmanager-public-sales-recording.php:281
+msgid "Remove"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:266
+msgid "Select a user..."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-band-meta-box.php:297
+msgid "Add User"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:41
+msgid "Merchandise Details"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:50
+msgid "Pricing and Inventory"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:59
+msgid "Attributes"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:68
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:337
+msgid "Supplier Information"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:77
+msgid "Sales History"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:107
+#: admin/partials/merchmanager-admin-reports.php:84
+msgid "Apparel"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:108
+#: admin/partials/merchmanager-admin-reports.php:85
+msgid "Music"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:109
+#: admin/partials/merchmanager-admin-reports.php:86
+msgid "Accessory"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:110
+#: admin/partials/merchmanager-admin-reports.php:87
+msgid "Poster"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:118
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:167
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:118
+msgid "Band"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:121
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:170
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:121
+msgid "Select a band..."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:132
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:264
+#: admin/partials/merchmanager-admin-reports.php:159
+#: admin/partials/merchmanager-admin-reports.php:200
+#: admin/partials/merchmanager-admin-reports.php:383
+#: includes/services/class-merchmanager-report-service.php:531
+msgid "SKU"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:139
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:267
+#: includes/services/class-merchmanager-report-service.php:532
+msgid "Category"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:142
+msgid "Select a category..."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:153
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:344
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:150
+#: admin/partials/merchmanager-admin-reports.php:365
+#: includes/services/class-merchmanager-report-service.php:554
+msgid "Active"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:156
+msgid "Inactive merchandise will not be available for sales."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:194
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:421
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:265
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:432
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:276
+#: admin/partials/merchmanager-admin-sales.php:216
+#: includes/services/class-merchmanager-report-service.php:535
+#: public/partials/merchmanager-public-sales-recording.php:254
+msgid "Price"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:204
+msgid "Cost"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:210
+msgid "Cost per unit (for profit calculations)."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:215
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:266
+#: includes/services/class-merchmanager-report-service.php:536
+msgid "Stock"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:222
+#: includes/services/class-merchmanager-report-service.php:537
+msgid "Low Stock Threshold"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:225
+msgid "When stock reaches this amount, a low stock alert will be triggered."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:229
+msgid "Stock Management"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:232
+msgid "Adjust Stock"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:235
+msgid "Enter a positive number to add stock or a negative number to remove stock."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:239
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:150
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:158
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:265
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:342
+#: public/partials/merchmanager-public-sales-page.php:219
+msgid "Notes"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:242
+msgid "Optional notes about this stock adjustment."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:262
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:277
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:440
+msgid "N/A"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:263
+msgid "XS"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:264
+msgid "S"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:265
+msgid "M"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:266
+msgid "L"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:267
+msgid "XL"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:268
+msgid "2XL"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:269
+msgid "3XL"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:270
+msgid "4XL"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:271
+msgid "5XL"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:272
+msgid "One Size"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:278
+msgid "Black"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:279
+msgid "White"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:280
+msgid "Red"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:281
+msgid "Blue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:282
+msgid "Green"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:283
+msgid "Yellow"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:284
+msgid "Orange"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:285
+msgid "Purple"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:286
+msgid "Pink"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:287
+msgid "Gray"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:288
+msgid "Brown"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:289
+msgid "Multi-color"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:296
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:268
+#: includes/services/class-merchmanager-report-service.php:533
+msgid "Size"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:309
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:269
+#: includes/services/class-merchmanager-report-service.php:534
+msgid "Color"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:340
+msgid "Enter supplier name, contact information, and any other relevant details."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:395
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:410
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:254
+#: admin/partials/merchmanager-admin-reports.php:474
+msgid "Sales Summary"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:397
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:412
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:256
+msgid "Total Sales:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:401
+msgid "Total Quantity:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:405
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:416
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:260
+msgid "Total Amount:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:411
+#: admin/partials/merchmanager-admin-dashboard.php:67
+msgid "Recent Sales"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:413
+msgid "No sales recorded for this merchandise."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:419
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:145
+msgid "Show"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:420
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:431
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:275
+#: public/partials/merchmanager-public-sales-page.php:185
+#: public/partials/merchmanager-public-sales-recording.php:255
+msgid "Quantity"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:422
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:433
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:277
+msgid "Total"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:458
+#: admin/partials/merchmanager-admin-dashboard.php:72
+msgid "View All Sales"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:465
+#: admin/partials/merchmanager-admin-reports.php:21
+#: admin/partials/merchmanager-admin-reports.php:312
+msgid "Stock History"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:476
+msgid "No stock history recorded for this merchandise."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:482
+#: admin/partials/merchmanager-admin-reports.php:320
+msgid "Previous Stock"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:483
+#: admin/partials/merchmanager-admin-reports.php:321
+msgid "New Stock"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:484
+#: admin/partials/merchmanager-admin-reports.php:322
+msgid "Change"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:485
+#: admin/partials/merchmanager-admin-reports.php:323
+msgid "Reason"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-merchandise-meta-box.php:512
+msgid "System"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:57
+msgid "Sales Page Details"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:66
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:430
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:274
+msgid "Merchandise"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:75
+msgid "Access Settings"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:93
+msgid "Shortcode"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:148
+msgid "Select a show..."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:162
+msgid "Select the show this sales page is for."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:177
+msgid "Select the band this sales page is for."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:240
+msgid "Select the merchandise items to include in this sales page."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:248
+msgid "No merchandise items found for this band."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:249
+#: admin/partials/merchmanager-admin-dashboard.php:131
+#: admin/partials/merchmanager-admin-onboarding.php:142
+#: admin/partials/merchmanager-admin-onboarding.php:145
+#: admin/partials/merchmanager-admin-sales.php:140
+msgid "Add Merchandise"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:251
+msgid "Please select a band first."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:263
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:256
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:288
+#: includes/services/class-merchmanager-report-service.php:530
+#: includes/services/class-merchmanager-report-service.php:613
+msgid "Name"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:341
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:146
+#: admin/partials/merchmanager-admin-reports.php:386
+#: includes/services/class-merchmanager-report-service.php:539
+#: includes/services/class-merchmanager-report-service.php:589
+msgid "Status"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:345
+#: includes/services/class-merchmanager-report-service.php:554
+msgid "Inactive"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:347
+msgid "Inactive sales pages cannot be accessed."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:352
+#: public/partials/merchmanager-public-sales-page.php:110
+msgid "Access Code"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:355
+msgid "Generate"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:356
+msgid "If set, users will need to enter this code to access the sales page. Leave blank for public access."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:361
+msgid "Expiry Date"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:364
+msgid "The sales page will become inactive after this date."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:424
+msgid "No sales recorded for this sales page."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:434
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:278
+#: admin/partials/merchmanager-admin-reports.php:515
+#: includes/services/class-merchmanager-report-service.php:442
+#: public/partials/merchmanager-public-sales-page.php:210
+msgid "Payment Type"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:470
+#: includes/post-types/class-merchmanager-post-types.php:217
+msgid "View Sales Page"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:471
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:315
+msgid "View Sales Report"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:493
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:350
+msgid "Shortcode:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:496
+msgid "Use this shortcode to display the sales page on any post or page."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:501
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:346
+msgid "URL:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-sales-page-meta-box.php:504
+msgid "Direct link to the sales page."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:57
+msgid "Show Details"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:66
+msgid "Venue Information"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:84
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:336
+msgid "Sales Page"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:123
+msgid "Tour"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:126
+msgid "Select a tour..."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:143
+msgid "Date and Time"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:178
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:258
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:300
+msgid "Venue Name"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:185
+msgid "Address"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:192
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:189
+#: includes/services/class-merchmanager-report-service.php:616
+msgid "City"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:199
+msgid "State/Province"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:206
+msgid "Country"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:213
+msgid "Postal Code"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:220
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:264
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:336
+msgid "Venue Contact"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:268
+msgid "No sales recorded for this show."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:314
+#: admin/partials/merchmanager-admin-dashboard.php:136
+#: admin/partials/merchmanager-admin-sales.php:285
+#: public/partials/merchmanager-public-band-dashboard.php:36
+#: public/partials/merchmanager-public-sales-page.php:121
+#: public/partials/merchmanager-public-sales-page.php:224
+#: public/partials/merchmanager-public-sales-recording.php:335
+msgid "Record Sale"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:338
+msgid "Title:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:342
+#: admin/partials/merchmanager-admin-reports.php:363
+msgid "Status:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:355
+msgid "Access Code:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:361
+msgid "Expiry Date:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:366
+#: includes/post-types/class-merchmanager-post-types.php:216
+msgid "Edit Sales Page"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:369
+msgid "No sales page has been created for this show."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-show-meta-box.php:371
+msgid "Create Sales Page"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:45
+msgid "Please select a CSV file to import."
+msgstr ""
+
+#. translators: 1: number of shows imported, 2: number of shows skipped
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:52
+#: includes/models/class-merchmanager-tour.php:463
+#, php-format
+msgid "Import completed: %d shows imported, %d skipped."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:67
+msgid "Tour Details"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:76
+#: includes/services/class-merchmanager-report-service.php:610
+msgid "Shows"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:85
+msgid "Import/Export Shows"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:132
+#: includes/services/class-merchmanager-report-service.php:581
+msgid "Start Date"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:139
+#: includes/services/class-merchmanager-report-service.php:585
+msgid "End Date"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:149
+msgid "Upcoming"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:151
+msgid "Completed"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:152
+msgid "Cancelled"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:180
+msgid "Manage shows for this tour."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:188
+#: includes/services/class-merchmanager-report-service.php:615
+msgid "Venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:196
+msgid "No shows added to this tour."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:214
+msgid "Edit"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:215
+msgid "Delete"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:224
+#: admin/partials/merchmanager-admin-dashboard.php:126
+msgid "Add Show"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:246
+msgid "Import shows from a CSV file or export shows to a CSV file."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:251
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:360
+msgid "Import Shows"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:253
+msgid "Upload a CSV file with show data. The CSV file should have the following columns:"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:256
+msgid "The name of the show (required)"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:257
+msgid "The date of the show in YYYY-MM-DD format (required)"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:258
+msgid "The name of the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:259
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:306
+msgid "Venue Address"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:259
+msgid "The address of the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:260
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:312
+msgid "Venue City"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:260
+msgid "The city of the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:261
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:318
+msgid "Venue State"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:261
+msgid "The state/province of the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:262
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:324
+msgid "Venue Country"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:262
+msgid "The country of the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:263
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:330
+msgid "Venue Postal Code"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:263
+msgid "The postal code of the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:264
+msgid "Contact information for the venue"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:265
+msgid "Additional notes for the show"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:274
+msgid "Column Mapping"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:276
+msgid "Map the columns in your CSV file to the fields in the plugin."
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:282
+msgid "Field"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:283
+msgid "CSV Column"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:350
+msgid "* Required fields"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:355
+msgid "CSV File"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:366
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:377
+msgid "Export Shows"
+msgstr ""
+
+#: admin/meta-boxes/class-merchmanager-tour-meta-box.php:368
+msgid "Export all shows for this tour to a CSV file."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:25
+#: admin/partials/merchmanager-admin-reports.php:41
+#: admin/partials/merchmanager-admin-sales.php:128
+msgid "Get started"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:26
+msgid "Create your first band to manage merchandise, tours, and sales."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:28
+#: admin/partials/merchmanager-admin-dashboard.php:116
+#: admin/partials/merchmanager-admin-reports.php:44
+#: admin/partials/merchmanager-admin-sales.php:131
+msgid "Add Band"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:29
+#: admin/partials/merchmanager-admin-reports.php:45
+#: admin/partials/merchmanager-admin-sales.php:132
+#: admin/partials/merchmanager-admin-settings.php:20
+msgid "Run setup wizard"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:37
+msgid "Welcome to MerchManager"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:38
+msgid "Manage your band's merchandise sales during tours and events."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:43
+#: admin/partials/merchmanager-admin-reports.php:477
+#: includes/services/class-merchmanager-report-service.php:405
+#: includes/services/class-merchmanager-report-service.php:598
+msgid "Total Sales"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:48
+#: admin/partials/merchmanager-admin-reports.php:485
+msgid "Total Revenue"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:53
+msgid "Active Tours"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:58
+#: admin/partials/merchmanager-admin-reports.php:153
+#: includes/services/class-merchmanager-report-service.php:513
+msgid "Low Stock Items"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:77
+#: admin/partials/merchmanager-admin-reports.php:490
+msgid "Top Selling Items"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:82
+#: admin/partials/merchmanager-admin-settings.php:141
+#: admin/partials/merchmanager-admin-settings.php:176
+#: admin/partials/merchmanager-admin-settings.php:211
+#: public/partials/merchmanager-public-band-dashboard.php:39
+msgid "View Reports"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:89
+msgid "Upcoming Shows"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:94
+msgid "View All Shows"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:99
+#: admin/partials/merchmanager-admin-settings.php:250
+msgid "Low Stock Alerts"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:104
+msgid "Manage Inventory"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:112
+msgid "Quick Links"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:121
+#: admin/partials/merchmanager-admin-onboarding.php:129
+msgid "Add Tour"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-dashboard.php:141
+msgid "Generate Sales Page"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-footer.php:20
+msgid "Theuws Logo"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-footer.php:24
+msgid "Developed by"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-footer.php:27
+msgid "All rights reserved."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:56
+msgid "MerchManager Setup Wizard"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:57
+msgid "Get your merchandise sales up and running in minutes"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:71
+msgid "Welcome to MerchManager"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:72
+msgid "MerchManager helps bands and music artists manage merchandise sales during tours and events. Track inventory, record sales, manage tours, and generate reports—all in one place."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:74
+msgid "Multi-band support"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:75
+msgid "Tour and show management"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:76
+msgid "Inventory tracking with low-stock alerts"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:77
+msgid "Sales recording and reports"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:78
+msgid "Event-specific sales pages with access codes"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:81
+msgid "Get Started"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:82
+msgid "Skip setup"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:93
+msgid "Create Your First Band"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:94
+msgid "A band is the central entity for your merchandise. Add your band name to get started."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:97
+msgid "You already have at least one band. You can add more later or continue to the next step."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:99
+msgid "Continue"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:107
+#: includes/services/class-merchmanager-report-service.php:577
+msgid "Band Name"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:108
+msgid "e.g. My Awesome Band"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:111
+msgid "Create Band & Continue"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:112
+msgid "Skip"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:117
+#: admin/partials/merchmanager-admin-onboarding.php:133
+#: admin/partials/merchmanager-admin-onboarding.php:149
+#: admin/partials/merchmanager-admin-onboarding.php:198
+msgid "Back"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:126
+msgid "Add a Tour and Show"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:127
+msgid "Tours group your shows. Each show has a venue, date, and can be linked to merchandise sales. You can add tours and shows later from the Dashboard."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:130
+#: admin/partials/merchmanager-admin-onboarding.php:146
+msgid "Skip for now"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:143
+msgid "Merchandise items are the products you sell: t-shirts, CDs, posters, etc. Each item has a price, stock level, and can be linked to a band. Add your first item or skip and do it later."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:158
+msgid "You're All Set!"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:159
+msgid "Here's a quick overview of where to find everything:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:164
+msgid "Overview of sales, revenue, tours, and low-stock alerts."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:169
+msgid "Record sales by band, merchandise, and payment type."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:174
+msgid "Sales reports, inventory, stock history, and alerts."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:179
+msgid "Currency, date format, roles, notifications, and more."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:183
+msgid "Shortcodes for Your Site"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:185
+msgid "— Display a sales page (requires Sales Page ID)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:186
+msgid "— Inline sales recording form for a band"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:187
+msgid "— Band dashboard with tours, merchandise, reports"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-onboarding.php:194
+msgid "Finish Setup"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:19
+msgid "Sales Reports"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:20
+msgid "Inventory Management"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:22
+#: admin/partials/merchmanager-admin-reports.php:375
+msgid "Stock Alerts"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:42
+msgid "Create your first band to see sales and inventory reports."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:93
+#: admin/partials/merchmanager-admin-reports.php:265
+#: admin/partials/merchmanager-admin-reports.php:358
+#: admin/partials/merchmanager-admin-reports.php:440
+msgid "Filters"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:98
+#: admin/partials/merchmanager-admin-reports.php:444
+msgid "Band:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:100
+#: admin/partials/merchmanager-admin-reports.php:446
+#: admin/partials/merchmanager-admin-sales.php:151
+#: includes/post-types/class-merchmanager-post-types.php:42
+#: public/partials/merchmanager-public-sales-recording.php:159
+msgid "All Bands"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:108
+msgid "Category:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:110
+msgid "All Categories"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:118
+#: admin/partials/merchmanager-admin-reports.php:306
+#: admin/partials/merchmanager-admin-reports.php:370
+#: admin/partials/merchmanager-admin-reports.php:455
+msgid "Apply Filters"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:119
+#: admin/partials/merchmanager-admin-reports.php:307
+msgid "Reset"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:124
+msgid "Inventory Overview"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:128
+#: includes/services/class-merchmanager-report-service.php:510
+msgid "Total Items"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:133
+#: includes/services/class-merchmanager-report-service.php:511
+msgid "Total Stock"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:138
+#: includes/services/class-merchmanager-report-service.php:512
+msgid "Total Value"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:143
+msgid "Low Stock"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:148
+msgid "Out of Stock"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:160
+#: admin/partials/merchmanager-admin-reports.php:201
+#: admin/partials/merchmanager-admin-reports.php:384
+msgid "Current Stock"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:161
+#: admin/partials/merchmanager-admin-reports.php:385
+msgid "Threshold"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:184
+#: admin/partials/merchmanager-admin-reports.php:216
+#: admin/partials/merchmanager-admin-reports.php:408
+msgid "Manage"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:191
+msgid "No low stock items found."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:194
+#: includes/services/class-merchmanager-report-service.php:514
+msgid "Out of Stock Items"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:223
+msgid "No out of stock items found."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:256
+msgid "Sale"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:257
+msgid "Manual Adjustment"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:258
+msgid "Receiving"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:259
+msgid "Damage/Loss"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:260
+msgid "Transfer"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:270
+msgid "Merchandise:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:272
+msgid "All Items"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:280
+msgid "User:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:282
+msgid "All Users"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:290
+msgid "Reason:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:292
+msgid "All Reasons"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:300
+#: admin/partials/merchmanager-admin-reports.php:451
+msgid "Start Date:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:303
+#: admin/partials/merchmanager-admin-reports.php:453
+msgid "End Date:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:343
+msgid "No stock history found."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:366
+msgid "Resolved"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:367
+msgid "All"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:381
+msgid "Created"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:405
+msgid "Resolve"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:415
+msgid "No stock alerts found."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:471
+msgid "Export to CSV"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:481
+#: includes/services/class-merchmanager-report-service.php:406
+#: includes/services/class-merchmanager-report-service.php:473
+msgid "Total Quantity"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:495
+#: includes/services/class-merchmanager-report-service.php:422
+#: includes/services/class-merchmanager-report-service.php:644
+msgid "Quantity Sold"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:511
+#: includes/services/class-merchmanager-report-service.php:440
+msgid "Sales by Payment Type"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:530
+msgid "No sales data found for the selected period."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-reports.php:556
+msgid "Alert resolved successfully."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:129
+msgid "Create your first band before recording sales."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:137
+msgid "Add merchandise first"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:138
+msgid "Add merchandise items for the selected band before recording sales."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:149
+#: public/partials/merchmanager-public-sales-recording.php:157
+msgid "Filter by Band:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:159
+#: public/partials/merchmanager-public-sales-recording.php:168
+msgid "Filter by Show:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:161
+#: includes/post-types/class-merchmanager-post-types.php:130
+#: public/partials/merchmanager-public-sales-recording.php:170
+msgid "All Shows"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:175
+#: public/partials/merchmanager-public-sales-recording.php:183
+msgid "Available Merchandise"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:197
+msgid "Add"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:202
+msgid "No merchandise available. Select a band or add merchandise first."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:209
+#: public/partials/merchmanager-public-sales-recording.php:246
+msgid "Current Sale"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:218
+#: public/partials/merchmanager-public-sales-recording.php:256
+msgid "Subtotal"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:235
+#: public/partials/merchmanager-public-sales-recording.php:273
+msgid "Update"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:251
+#: public/partials/merchmanager-public-sales-page.php:206
+#: public/partials/merchmanager-public-sales-recording.php:289
+msgid "Total:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:260
+#: public/partials/merchmanager-public-sales-recording.php:305
+msgid "Payment Type:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:262
+#: public/partials/merchmanager-public-sales-page.php:212
+#: public/partials/merchmanager-public-sales-recording.php:307
+msgid "Cash"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:263
+#: public/partials/merchmanager-public-sales-page.php:213
+#: public/partials/merchmanager-public-sales-recording.php:308
+msgid "Card"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:269
+#: public/partials/merchmanager-public-sales-recording.php:315
+msgid "Show:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:271
+#: public/partials/merchmanager-public-sales-recording.php:317
+msgid "Not associated with a show"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:281
+#: public/partials/merchmanager-public-sales-recording.php:328
+msgid "Notes:"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:286
+msgid "Clear the current sale?"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:286
+#: public/partials/merchmanager-public-sales-recording.php:339
+msgid "Clear Sale"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-sales.php:291
+#: public/partials/merchmanager-public-sales-recording.php:345
+msgid "No items in current sale. Add items from the merchandise list."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:27
+msgid "Settings saved."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:33
+msgid "General"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:34
+msgid "Users"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:35
+msgid "Notifications"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:36
+msgid "Advanced"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:49
+msgid "Currency"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:53
+msgid "US Dollar ($)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:54
+msgid "Euro (€)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:55
+msgid "British Pound (£)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:56
+msgid "Canadian Dollar ($)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:57
+msgid "Australian Dollar ($)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:64
+msgid "Date Format"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:78
+msgid "Time Format"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:90
+msgid "Default Low Stock Threshold"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:94
+msgid "Default threshold for low stock alerts."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:100
+msgid "Default Sales Page Expiry"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:104
+msgid "Default number of days before a sales page expires."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:114
+#: admin/partials/merchmanager-admin-settings.php:118
+msgid "MSP Management Role Permissions"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:121
+#: admin/partials/merchmanager-admin-settings.php:156
+#: admin/partials/merchmanager-admin-settings.php:191
+msgid "Manage Bands"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:126
+#: admin/partials/merchmanager-admin-settings.php:161
+#: admin/partials/merchmanager-admin-settings.php:196
+#: public/partials/merchmanager-public-band-dashboard.php:38
+msgid "Manage Tours"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:131
+#: admin/partials/merchmanager-admin-settings.php:166
+#: admin/partials/merchmanager-admin-settings.php:201
+#: public/partials/merchmanager-public-band-dashboard.php:37
+msgid "Manage Merchandise"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:136
+#: admin/partials/merchmanager-admin-settings.php:171
+#: admin/partials/merchmanager-admin-settings.php:206
+msgid "Manage Sales"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:149
+#: admin/partials/merchmanager-admin-settings.php:153
+msgid "MSP Tour Management Role Permissions"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:184
+#: admin/partials/merchmanager-admin-settings.php:188
+msgid "MSP Merch Sales Role Permissions"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:223
+msgid "Enable Email Notifications"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:227
+msgid "Enable email notifications for various events."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:233
+msgid "Notification Email"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:237
+msgid "Email address to receive notifications."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:243
+#: admin/partials/merchmanager-admin-settings.php:247
+msgid "Notification Types"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:255
+msgid "Daily Sales Summary"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:260
+msgid "New Sales Page Generation"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:272
+msgid "Data Retention Period"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:276
+msgid "Keep all data"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:277
+msgid "1 year"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:278
+msgid "2 years"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:279
+msgid "3 years"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:281
+msgid "How long to keep sales data before archiving."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:287
+msgid "Debug Mode"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:291
+msgid "Enable debug mode for troubleshooting."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:297
+msgid "CSV Delimiter"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:301
+msgid "Comma (,)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:302
+msgid "Semicolon (;)"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:303
+msgid "Tab"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:305
+msgid "Delimiter for CSV import/export."
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:311
+msgid "Remove Data on Uninstall"
+msgstr ""
+
+#: admin/partials/merchmanager-admin-settings.php:315
+msgid "Remove all plugin data when uninstalling the plugin."
+msgstr ""
+
+#: includes/class-merchmanager-activator.php:157
+msgid "MSP Management"
+msgstr ""
+
+#: includes/class-merchmanager-activator.php:172
+msgid "MSP Tour Management"
+msgstr ""
+
+#: includes/class-merchmanager-activator.php:187
+msgid "MSP Merch Sales"
+msgstr ""
+
+#: includes/models/class-merchmanager-show.php:496
+#: includes/services/class-merchmanager-sales-service.php:551
+msgid "Invalid show ID."
+msgstr ""
+
+#: includes/models/class-merchmanager-show.php:502
+msgid "A sales page already exists for this show."
+msgstr ""
+
+#: includes/models/class-merchmanager-show.php:508
+msgid "Could not determine band for this show."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:342
+#: includes/models/class-merchmanager-tour.php:483
+#: includes/services/class-merchmanager-report-service.php:239
+msgid "Invalid tour ID."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:350
+msgid "CSV file not found."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:359
+msgid "Could not open CSV file."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:376
+msgid "Could not read CSV header."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:407
+#, php-format
+msgid "Row skipped: Missing required fields (name or date). Data: %s"
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:450
+#, php-format
+msgid "Error saving show: %s"
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:492
+msgid "No shows found for this tour."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:508
+#: includes/services/class-merchmanager-report-service.php:353
+#: includes/services/class-merchmanager-sales-service.php:451
+msgid "Could not create CSV file."
+msgstr ""
+
+#: includes/models/class-merchmanager-tour.php:552
+#, php-format
+msgid "Export completed: %d shows exported to %s."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:33
+msgctxt "Post type general name"
+msgid "Bands"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:34
+msgctxt "Post type singular name"
+msgid "Band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:35
+msgctxt "Admin Menu text"
+msgid "Bands"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:36
+msgctxt "Add New on Toolbar"
+msgid "Band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:37
+#: includes/post-types/class-merchmanager-post-types.php:81
+#: includes/post-types/class-merchmanager-post-types.php:125
+#: includes/post-types/class-merchmanager-post-types.php:169
+#: includes/post-types/class-merchmanager-post-types.php:213
+msgid "Add New"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:38
+msgid "Add New Band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:39
+msgid "New Band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:40
+msgid "Edit Band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:41
+msgid "View Band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:43
+msgid "Search Bands"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:44
+msgid "Parent Bands:"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:45
+msgid "No bands found."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:46
+msgid "No bands found in Trash."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:47
+msgctxt "Overrides the \"Featured Image\" phrase"
+msgid "Band Logo"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:48
+msgctxt "Overrides the \"Set featured image\" phrase"
+msgid "Set band logo"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:49
+msgctxt "Overrides the \"Remove featured image\" phrase"
+msgid "Remove band logo"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:50
+msgctxt "Overrides the \"Use as featured image\" phrase"
+msgid "Use as band logo"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:51
+msgctxt "The post type archive label used in nav menus"
+msgid "Band archives"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:52
+msgctxt "Overrides the \"Insert into post\" phrase"
+msgid "Insert into band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:53
+msgctxt "Overrides the \"Uploaded to this post\" phrase"
+msgid "Uploaded to this band"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:54
+msgctxt "Screen reader text for the filter links heading on the post type listing screen"
+msgid "Filter bands list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:55
+msgctxt "Screen reader text for the pagination heading on the post type listing screen"
+msgid "Bands list navigation"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:56
+msgctxt "Screen reader text for the items list heading on the post type listing screen"
+msgid "Bands list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:77
+msgctxt "Post type general name"
+msgid "Tours"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:78
+msgctxt "Post type singular name"
+msgid "Tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:79
+msgctxt "Admin Menu text"
+msgid "Tours"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:80
+msgctxt "Add New on Toolbar"
+msgid "Tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:82
+msgid "Add New Tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:83
+msgid "New Tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:84
+msgid "Edit Tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:85
+msgid "View Tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:86
+msgid "All Tours"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:87
+msgid "Search Tours"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:88
+msgid "Parent Tours:"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:89
+msgid "No tours found."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:90
+msgid "No tours found in Trash."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:91
+msgctxt "Overrides the \"Featured Image\" phrase"
+msgid "Tour Image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:92
+msgctxt "Overrides the \"Set featured image\" phrase"
+msgid "Set tour image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:93
+msgctxt "Overrides the \"Remove featured image\" phrase"
+msgid "Remove tour image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:94
+msgctxt "Overrides the \"Use as featured image\" phrase"
+msgid "Use as tour image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:95
+msgctxt "The post type archive label used in nav menus"
+msgid "Tour archives"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:96
+msgctxt "Overrides the \"Insert into post\" phrase"
+msgid "Insert into tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:97
+msgctxt "Overrides the \"Uploaded to this post\" phrase"
+msgid "Uploaded to this tour"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:98
+msgctxt "Screen reader text for the filter links heading on the post type listing screen"
+msgid "Filter tours list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:99
+msgctxt "Screen reader text for the pagination heading on the post type listing screen"
+msgid "Tours list navigation"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:100
+msgctxt "Screen reader text for the items list heading on the post type listing screen"
+msgid "Tours list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:121
+msgctxt "Post type general name"
+msgid "Shows"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:122
+msgctxt "Post type singular name"
+msgid "Show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:123
+msgctxt "Admin Menu text"
+msgid "Shows"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:124
+msgctxt "Add New on Toolbar"
+msgid "Show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:126
+msgid "Add New Show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:127
+msgid "New Show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:128
+msgid "Edit Show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:129
+msgid "View Show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:131
+msgid "Search Shows"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:132
+msgid "Parent Shows:"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:133
+msgid "No shows found."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:134
+msgid "No shows found in Trash."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:135
+msgctxt "Overrides the \"Featured Image\" phrase"
+msgid "Show Image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:136
+msgctxt "Overrides the \"Set featured image\" phrase"
+msgid "Set show image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:137
+msgctxt "Overrides the \"Remove featured image\" phrase"
+msgid "Remove show image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:138
+msgctxt "Overrides the \"Use as featured image\" phrase"
+msgid "Use as show image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:139
+msgctxt "The post type archive label used in nav menus"
+msgid "Show archives"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:140
+msgctxt "Overrides the \"Insert into post\" phrase"
+msgid "Insert into show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:141
+msgctxt "Overrides the \"Uploaded to this post\" phrase"
+msgid "Uploaded to this show"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:142
+msgctxt "Screen reader text for the filter links heading on the post type listing screen"
+msgid "Filter shows list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:143
+msgctxt "Screen reader text for the pagination heading on the post type listing screen"
+msgid "Shows list navigation"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:144
+msgctxt "Screen reader text for the items list heading on the post type listing screen"
+msgid "Shows list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:165
+msgctxt "Post type general name"
+msgid "Merchandise"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:166
+msgctxt "Post type singular name"
+msgid "Merchandise Item"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:167
+msgctxt "Admin Menu text"
+msgid "Merchandise"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:168
+msgctxt "Add New on Toolbar"
+msgid "Merchandise Item"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:170
+msgid "Add New Merchandise Item"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:171
+msgid "New Merchandise Item"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:172
+msgid "Edit Merchandise Item"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:173
+msgid "View Merchandise Item"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:174
+msgid "All Merchandise"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:175
+msgid "Search Merchandise"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:176
+msgid "Parent Merchandise:"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:177
+msgid "No merchandise found."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:178
+msgid "No merchandise found in Trash."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:179
+msgctxt "Overrides the \"Featured Image\" phrase"
+msgid "Merchandise Image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:180
+msgctxt "Overrides the \"Set featured image\" phrase"
+msgid "Set merchandise image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:181
+msgctxt "Overrides the \"Remove featured image\" phrase"
+msgid "Remove merchandise image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:182
+msgctxt "Overrides the \"Use as featured image\" phrase"
+msgid "Use as merchandise image"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:183
+msgctxt "The post type archive label used in nav menus"
+msgid "Merchandise archives"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:184
+msgctxt "Overrides the \"Insert into post\" phrase"
+msgid "Insert into merchandise"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:185
+msgctxt "Overrides the \"Uploaded to this post\" phrase"
+msgid "Uploaded to this merchandise"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:186
+msgctxt "Screen reader text for the filter links heading on the post type listing screen"
+msgid "Filter merchandise list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:187
+msgctxt "Screen reader text for the pagination heading on the post type listing screen"
+msgid "Merchandise list navigation"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:188
+msgctxt "Screen reader text for the items list heading on the post type listing screen"
+msgid "Merchandise list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:209
+msgctxt "Post type general name"
+msgid "Sales Pages"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:210
+msgctxt "Post type singular name"
+msgid "Sales Page"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:211
+msgctxt "Admin Menu text"
+msgid "Sales Pages"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:212
+msgctxt "Add New on Toolbar"
+msgid "Sales Page"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:214
+msgid "Add New Sales Page"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:215
+msgid "New Sales Page"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:218
+msgid "All Sales Pages"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:219
+msgid "Search Sales Pages"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:220
+msgid "Parent Sales Pages:"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:221
+msgid "No sales pages found."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:222
+msgid "No sales pages found in Trash."
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:223
+msgctxt "The post type archive label used in nav menus"
+msgid "Sales Page archives"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:224
+msgctxt "Overrides the \"Insert into post\" phrase"
+msgid "Insert into sales page"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:225
+msgctxt "Overrides the \"Uploaded to this post\" phrase"
+msgid "Uploaded to this sales page"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:226
+msgctxt "Screen reader text for the filter links heading on the post type listing screen"
+msgid "Filter sales pages list"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:227
+msgctxt "Screen reader text for the pagination heading on the post type listing screen"
+msgid "Sales pages list navigation"
+msgstr ""
+
+#: includes/post-types/class-merchmanager-post-types.php:228
+msgctxt "Screen reader text for the items list heading on the post type listing screen"
+msgid "Sales pages list"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:247
+#: includes/services/class-merchmanager-sales-service.php:544
+msgid "Invalid band ID."
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:375
+msgid "Invalid report type."
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:385
+#, php-format
+msgid "Report exported to %s."
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:403
+msgid "Sales Report Summary"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:407
+#: includes/services/class-merchmanager-report-service.php:423
+#: includes/services/class-merchmanager-report-service.php:444
+#: includes/services/class-merchmanager-report-service.php:474
+#: includes/services/class-merchmanager-report-service.php:599
+#: includes/services/class-merchmanager-report-service.php:645
+msgid "Total Amount"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:418
+#: includes/services/class-merchmanager-report-service.php:640
+msgid "Top Selling Merchandise"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:420
+#: includes/services/class-merchmanager-report-service.php:642
+msgid "Merchandise ID"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:421
+#: includes/services/class-merchmanager-report-service.php:643
+msgid "Merchandise Name"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:443
+#: includes/services/class-merchmanager-report-service.php:472
+msgid "Number of Sales"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:460
+msgid "Sales by Date"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:465
+msgid "Week"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:467
+msgid "Month"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:508
+msgid "Inventory Report Summary"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:527
+msgid "Inventory Items"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:529
+#: includes/services/class-merchmanager-report-service.php:612
+msgid "ID"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:538
+msgid "Value"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:571
+msgid "Tour Report"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:573
+msgid "Tour Name"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:595
+msgid "Tour Summary"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:597
+msgid "Total Shows"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:617
+msgid "State"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:618
+msgid "Sales Count"
+msgstr ""
+
+#: includes/services/class-merchmanager-report-service.php:619
+msgid "Sales Amount"
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:66
+#: includes/services/class-merchmanager-sales-recording-service.php:132
+#: includes/services/class-merchmanager-sales-service.php:538
+#: includes/services/class-merchmanager-stock-service.php:342
+msgid "Invalid merchandise ID."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:71
+msgid "This merchandise is not available."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:77
+msgid "This item is out of stock."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:86
+#: includes/services/class-merchmanager-sales-recording-service.php:139
+#, php-format
+msgid "Only %d items available in stock."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:126
+msgid "Item not found in sales session."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:267
+msgid "No items selected for sale."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:275
+#, php-format
+msgid "Item #%d is no longer available."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:280
+#, php-format
+msgid "%s is no longer available."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:286
+#, php-format
+msgid "%s is out of stock."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:292
+#, php-format
+msgid "Only %d of %s available in stock."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:325
+msgid "No valid items for sale."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-recording-service.php:354
+msgid "Sale recorded successfully."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:84
+msgid "Error recording sale."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:131
+msgid "Sale not found."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:146
+msgid "Error deleting sale."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:435
+msgid "No sales found."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:511
+#, php-format
+msgid "Export completed: %d sales exported to %s."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:531
+#, php-format
+msgid "Missing required field: %s"
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:559
+msgid "Invalid sales page ID."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:565
+msgid "Quantity must be a positive number."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:570
+msgid "Price must be a non-negative number."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:576
+msgid "Insufficient stock."
+msgstr ""
+
+#: includes/services/class-merchmanager-sales-service.php:600
+#, php-format
+msgid "Stock change due to %s (ID: %d)"
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:218
+msgid "Alert not found."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:235
+msgid "Error resolving alert."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:335
+msgid "Missing required fields."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:374
+msgid "Low stock email notifications are disabled."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:387
+msgid "No active low stock alerts found."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:392
+#, php-format
+msgid "[%s] Low Stock Alert"
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:394
+msgid "The following items are low in stock:"
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:407
+msgid "Please log in to your website to manage inventory."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:416
+#, php-format
+msgid "Low stock alerts sent to %s."
+msgstr ""
+
+#: includes/services/class-merchmanager-stock-service.php:417
+msgid "Failed to send low stock alerts."
+msgstr ""
+
+#: public/class-merchmanager-public.php:142
+msgid "Sales page not found."
+msgstr ""
+
+#: public/class-merchmanager-public.php:148
+msgid "This sales page is no longer active."
+msgstr ""
+
+#: public/class-merchmanager-public.php:154
+msgid "This sales page has expired."
+msgstr ""
+
+#: public/class-merchmanager-public.php:183
+msgid "You must be logged in to view the band dashboard."
+msgstr ""
+
+#: public/class-merchmanager-public.php:198
+msgid "You are not associated with any bands."
+msgstr ""
+
+#: public/class-merchmanager-public.php:214
+#: public/partials/merchmanager-public-band-dashboard.php:17
+msgid "Band not found."
+msgstr ""
+
+#: public/class-merchmanager-public.php:230
+msgid "You do not have access to this band."
+msgstr ""
+
+#: public/class-merchmanager-public.php:289
+msgid "You do not have permission to record sales."
+msgstr ""
+
+#: public/partials/merchmanager-public-band-dashboard.php:30
+msgid "Band Dashboard"
+msgstr ""
+
+#: public/partials/merchmanager-public-band-dashboard.php:34
+msgid "Quick Actions"
+msgstr ""
+
+#: public/partials/merchmanager-public-band-dashboard.php:42
+msgid "Use the admin dashboard for full band management."
+msgstr ""
+
+#: public/partials/merchmanager-public-band-selector.php:22
+msgid "Select Band"
+msgstr ""
+
+#: public/partials/merchmanager-public-band-selector.php:23
+msgid "You are associated with multiple bands. Select one to view its dashboard."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:26
+msgid "Band not found for this sales page."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:102
+msgid "Access Code Required"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:103
+msgid "Please enter the access code to view this sales page."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:105
+msgid "The access code you entered is incorrect. Please try again."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:115
+msgid "Submit"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:192
+#: public/partials/merchmanager-public-sales-recording.php:241
+msgid "No merchandise available."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:198
+msgid "Sale Summary"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:201
+msgid "No items selected."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:231
+msgid "Sale Recorded"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:232
+msgid "The sale has been recorded successfully."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-page.php:233
+msgid "Record Another Sale"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-recording.php:141
+msgid "Manual Sales Recording"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-recording.php:233
+msgid "Quantity:"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-recording.php:235
+msgid "Add to Sale"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-recording.php:302
+msgid "Sale Details"
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-recording.php:329
+msgid "Optional notes about this sale..."
+msgstr ""
+
+#: public/partials/merchmanager-public-sales-recording.php:338
+msgid "Are you sure you want to clear the current sale?"
+msgstr ""

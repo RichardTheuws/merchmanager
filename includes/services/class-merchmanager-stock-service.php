@@ -2,12 +2,21 @@
 /**
  * The stock service class.
  *
- * @link       https://example.com
+ * @link       https://theuws.com
  * @since      1.0.0
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/services
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Merchmanager_Merchandise is required for get_low_stock_items, get_out_of_stock_items, get_stock_statistics, etc.
+if ( ! class_exists( 'Merchmanager_Merchandise' ) ) {
+	require_once MERCHMANAGER_PLUGIN_DIR . 'includes/models/class-merchmanager-merchandise.php';
+}
 
 /**
  * The stock service class.
@@ -16,7 +25,7 @@
  *
  * @package    Merchmanager
  * @subpackage Merchmanager/includes/services
- * @author     Your Name <email@example.com>
+ * @author     Theuws Consulting
  */
 class Merchmanager_Stock_Service {
 
@@ -174,20 +183,12 @@ class Merchmanager_Stock_Service {
     public function get_stock_alerts( $status = 'active' ) {
         global $wpdb;
 
-        // Build query
         $table_name = $wpdb->prefix . 'msp_stock_alerts';
-        $query = "SELECT * FROM $table_name";
-
-        // Add status filter
-        if ( $status !== 'all' ) {
-            $query .= $wpdb->prepare( " WHERE status = %s", $status );
+        if ( $status === 'all' ) {
+            $alerts = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM %i ORDER BY created_at DESC', $table_name ) );
+        } else {
+            $alerts = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM %i WHERE status = %s ORDER BY created_at DESC', $table_name, $status ) );
         }
-
-        // Add order
-        $query .= " ORDER BY created_at DESC";
-
-        // Get alerts
-        $alerts = $wpdb->get_results( $query );
 
         // Add merchandise data
         foreach ( $alerts as &$alert ) {
@@ -210,9 +211,9 @@ class Merchmanager_Stock_Service {
     public function resolve_stock_alert( $alert_id ) {
         global $wpdb;
 
-        // Get alert
+        // Get alert (WP 6.2+ %i for table identifier).
         $table_name = $wpdb->prefix . 'msp_stock_alerts';
-        $alert = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE id = %d", $alert_id ) );
+        $alert = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE id = %d', $table_name, $alert_id ) );
 
         if ( ! $alert ) {
             return new WP_Error( 'invalid_alert', __( 'Alert not found.', 'merchmanager' ) );
@@ -267,40 +268,48 @@ class Merchmanager_Stock_Service {
         // Merge arguments
         $args = wp_parse_args( $args, $default_args );
 
-        // Build query
         $table_name = $wpdb->prefix . 'msp_stock_log';
-        $query = "SELECT * FROM $table_name WHERE 1=1";
+        $sql    = 'SELECT * FROM %i WHERE 1=1';
+        $values = array( $table_name );
 
-        // Add filters
         if ( $args['merchandise_id'] ) {
-            $query .= $wpdb->prepare( " AND merchandise_id = %d", $args['merchandise_id'] );
+            $sql .= ' AND merchandise_id = %d';
+            $values[] = $args['merchandise_id'];
         }
         if ( $args['user_id'] ) {
-            $query .= $wpdb->prepare( " AND user_id = %d", $args['user_id'] );
+            $sql .= ' AND user_id = %d';
+            $values[] = $args['user_id'];
         }
         if ( $args['change_reason'] ) {
-            $query .= $wpdb->prepare( " AND change_reason = %s", $args['change_reason'] );
+            $sql .= ' AND change_reason = %s';
+            $values[] = $args['change_reason'];
         }
         if ( $args['start_date'] ) {
-            $query .= $wpdb->prepare( " AND created_at >= %s", $args['start_date'] );
+            $sql .= ' AND created_at >= %s';
+            $values[] = $args['start_date'];
         }
         if ( $args['end_date'] ) {
-            $query .= $wpdb->prepare( " AND created_at <= %s", $args['end_date'] );
+            $sql .= ' AND created_at <= %s';
+            $values[] = $args['end_date'];
         }
 
-        // Add order
-        $query .= " ORDER BY " . esc_sql( $args['orderby'] ) . " " . esc_sql( $args['order'] );
+        $allowed_orderby = array( 'id', 'created_at', 'merchandise_id', 'user_id', 'change_reason' );
+        $allowed_order  = array( 'ASC', 'DESC' );
+        $orderby        = in_array( $args['orderby'], $allowed_orderby, true ) ? $args['orderby'] : 'created_at';
+        $order          = in_array( strtoupper( $args['order'] ), $allowed_order, true ) ? strtoupper( $args['order'] ) : 'DESC';
+        $sql           .= ' ORDER BY ' . $orderby . ' ' . $order;
 
-        // Add limit
         if ( $args['limit'] > 0 ) {
-            $query .= $wpdb->prepare( " LIMIT %d", $args['limit'] );
+            $sql .= ' LIMIT %d';
+            $values[] = $args['limit'];
             if ( $args['offset'] > 0 ) {
-                $query .= $wpdb->prepare( " OFFSET %d", $args['offset'] );
+                $sql .= ' OFFSET %d';
+                $values[] = $args['offset'];
             }
         }
 
-        // Get log entries
-        $log_entries = $wpdb->get_results( $query );
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Dynamic query from whitelisted fragments and placeholders only.
+        $log_entries = $wpdb->get_results( $wpdb->prepare( $sql, ...$values ) );
 
         // Add merchandise and user data
         foreach ( $log_entries as &$entry ) {
@@ -389,7 +398,11 @@ class Merchmanager_Stock_Service {
         }
 
         // Prepare email content
-        $subject = sprintf( __( '[%s] Low Stock Alert', 'merchmanager' ), get_bloginfo( 'name' ) );
+        $subject = sprintf(
+            /* translators: %1$s: site name */
+            __( '[%1$s] Low Stock Alert', 'merchmanager' ),
+            get_bloginfo( 'name' )
+        );
         
         $message = __( 'The following items are low in stock:', 'merchmanager' ) . "\n\n";
         
@@ -412,8 +425,12 @@ class Merchmanager_Stock_Service {
 
         return array(
             'success' => $result,
-            'message' => $result ? 
-                sprintf( __( 'Low stock alerts sent to %s.', 'merchmanager' ), $notification_email ) : 
+            'message' => $result ?
+                sprintf(
+                    /* translators: %1$s: email address */
+                    __( 'Low stock alerts sent to %1$s.', 'merchmanager' ),
+                    $notification_email
+                ) :
                 __( 'Failed to send low stock alerts.', 'merchmanager' ),
             'alerts' => $alerts,
         );
