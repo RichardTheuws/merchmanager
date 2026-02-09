@@ -140,7 +140,7 @@ This project is licensed under the GPL v2 or later - see the [LICENSE](LICENSE) 
 ## WordPress.org & GitHub
 
 - **WordPress.org**: [readme.txt](readme.txt) for the plugin directory listing
-- **GitHub**: [https://github.com/theuws-consulting/merch-manager](https://github.com/theuws-consulting/merch-manager)
+- **GitHub**: [https://github.com/RichardTheuws/merchmanager](https://github.com/RichardTheuws/merchmanager)
 
 ## Support
 

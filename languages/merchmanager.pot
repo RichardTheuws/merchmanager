@@ -21,7 +21,7 @@ msgstr ""
 
 #. Plugin URI of the plugin
 #: merchmanager.php
-msgid "https://github.com/theuws-consulting/merch-manager"
+msgid "https://github.com/RichardTheuws/merchmanager"
 msgstr ""
 
 #. Description of the plugin

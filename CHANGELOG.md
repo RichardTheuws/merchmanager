@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Documentation
-- **readme.txt & README.md**: Added "Why MerchManager?" / "Why this exists" with author background (20+ years European merchandise, helping bands), non-commercial nature, no paid version, open contribution, and why WordPress (experience since 2006). GitHub README title set to MerchManager; Contributing and Support sections aligned.
+## [1.1.2] - 2026-02-08
+
+### Changed
+- **Links**: Plugin URI and GitHub links updated to correct repo (RichardTheuws/merchmanager). Updated in merchmanager.php, README.md, and languages/merchmanager.pot.
 
 ## [1.1.1] - 2026-02-08
 

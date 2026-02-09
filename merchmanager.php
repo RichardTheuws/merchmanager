@@ -13,9 +13,9 @@
  *
  * @wordpress-plugin
  * Plugin Name:       MerchManager
- * Plugin URI:        https://github.com/theuws-consulting/merch-manager
+ * Plugin URI:        https://github.com/RichardTheuws/merchmanager
  * Description:       A comprehensive WordPress plugin for bands and music artists to manage merchandise sales during tours and events.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Author:            Theuws Consulting
  * Author URI:        https://theuws.com
  * License:           GPL-2.0+
