@@ -62,10 +62,46 @@ class Merchmanager_Report_Service {
         // Merge arguments
         $args = wp_parse_args( $args, $default_args );
 
-        // Get sales summary
-        $summary = $this->sales_service->get_sales_summary( $args );
+        // Get summary totals (no grouping: one row with global totals).
+        $summary_args = array_merge( $args, array( 'group_by' => '' ) );
+        $summary     = $this->sales_service->get_sales_summary( $summary_args );
 
-        // Get sales by date
+        $total_sales    = 0;
+        $total_quantity = 0;
+        $total_amount   = 0.0;
+        if ( ! empty( $summary ) && isset( $summary[0] ) ) {
+            $total_sales    = (int) $summary[0]->count;
+            $total_quantity = (int) $summary[0]->total_quantity;
+            $total_amount   = (float) $summary[0]->total_amount;
+        }
+
+        // Reconciliatie-check (failsafe): compare with raw aggregation.
+        $raw = $this->sales_service->get_sales_totals_raw( $args );
+        if ( $raw !== null ) {
+            $raw_count   = (int) $raw->count;
+            $raw_qty     = (int) $raw->total_quantity;
+            $raw_amount  = (float) $raw->total_amount;
+            $amount_diff = abs( (float) $total_amount - $raw_amount );
+            if ( $total_sales !== $raw_count || $total_quantity !== $raw_qty || $amount_diff > 0.01 ) {
+                if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+                    error_log( '[MerchManager] Report integrity check failed: summary vs raw mismatch. Filter: ' . wp_json_encode( $args ) );
+                }
+                return array(
+                    'integrity_error'   => true,
+                    'integrity_message' => __( 'Data consistency check failed. Please try again or contact support.', 'merchmanager' ),
+                    'summary'           => array(
+                        'total_sales'    => 0,
+                        'total_quantity' => 0,
+                        'total_amount'   => 0.0,
+                    ),
+                    'sales_by_date'     => array(),
+                    'top_merchandise'   => array(),
+                    'sales_by_payment'  => array(),
+                );
+            }
+        }
+
+        // Get sales by date (grouped).
         $sales_by_date = $this->sales_service->get_sales_by_date( $args );
 
         // Get top selling merchandise
@@ -74,27 +110,15 @@ class Merchmanager_Report_Service {
         // Get sales by payment type
         $sales_by_payment = $this->sales_service->get_sales_by_payment_type( $args );
 
-        // Calculate totals
-        $total_sales = 0;
-        $total_quantity = 0;
-        $total_amount = 0;
-
-        if ( ! empty( $summary ) && isset( $summary[0] ) ) {
-            $total_sales = $summary[0]->count;
-            $total_quantity = $summary[0]->total_quantity;
-            $total_amount = $summary[0]->total_amount;
-        }
-
-        // Prepare report data
         $report = array(
-            'summary' => array(
-                'total_sales' => $total_sales,
+            'summary'           => array(
+                'total_sales'    => $total_sales,
                 'total_quantity' => $total_quantity,
-                'total_amount' => $total_amount,
+                'total_amount'   => $total_amount,
             ),
-            'sales_by_date' => $sales_by_date,
-            'top_merchandise' => $top_merchandise,
-            'sales_by_payment' => $sales_by_payment,
+            'sales_by_date'     => $sales_by_date,
+            'top_merchandise'   => $top_merchandise,
+            'sales_by_payment'  => $sales_by_payment,
         );
 
         return $report;

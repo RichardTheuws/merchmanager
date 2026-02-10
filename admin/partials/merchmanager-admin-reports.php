@@ -158,6 +158,19 @@ $reports_bands = Merchmanager_Band::get_all();
                     
                     <h3><?php esc_html_e( 'Low Stock Items', 'merchmanager' ); ?></h3>
                     <?php if ( ! empty( $low_stock_items ) ) : ?>
+                        <?php
+                        $low_stock_export_url = add_query_arg(
+                            array(
+                                'page'                 => 'msp-reports',
+                                'tab'                  => 'inventory',
+                                'msp_export_low_stock' => '1',
+                                'band_id'              => $band_id,
+                                '_wpnonce'             => wp_create_nonce( 'msp_export_low_stock' ),
+                            ),
+                            admin_url( 'admin.php' )
+                        );
+                        ?>
+                        <p><a href="<?php echo esc_url( $low_stock_export_url ); ?>" class="button"><?php esc_html_e( 'Export for reorder (CSV)', 'merchmanager' ); ?></a></p>
                         <table class="widefat">
                             <thead>
                                 <tr>
@@ -443,6 +456,7 @@ $reports_bands = Merchmanager_Band::get_all();
                 ?>
                 <div class="msp-report-filters">
                     <h3><?php esc_html_e( 'Filters', 'merchmanager' ); ?></h3>
+                    <p class="msp-report-tooltip description"><?php esc_html_e( 'All amounts are shown in your configured currency (Settings → General).', 'merchmanager' ); ?></p>
                     <form method="get" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:15px;">
                         <input type="hidden" name="page" value="msp-reports">
                         <input type="hidden" name="tab" value="sales">
@@ -460,7 +474,7 @@ $reports_bands = Merchmanager_Band::get_all();
                         <input type="submit" class="button" value="<?php esc_attr_e( 'Apply Filters', 'merchmanager' ); ?>">
                     </form>
                     <?php
-                    $export_url = add_query_arg(
+                    $export_summary_url = add_query_arg(
                         array(
                             'page'            => 'msp-reports',
                             'tab'             => 'sales',
@@ -472,10 +486,29 @@ $reports_bands = Merchmanager_Band::get_all();
                         ),
                         admin_url( 'admin.php' )
                     );
+                    $export_detail_url = add_query_arg(
+                        array(
+                            'page'                    => 'msp-reports',
+                            'tab'                     => 'sales',
+                            'msp_export_sales_detail' => '1',
+                            'band_id'                  => $band_id,
+                            'start_date'               => $start_date,
+                            'end_date'                 => $end_date,
+                            '_wpnonce'                 => wp_create_nonce( 'msp_export_sales_report' ),
+                        ),
+                        admin_url( 'admin.php' )
+                    );
                     ?>
-                    <p><a href="<?php echo esc_url( $export_url ); ?>" class="button"><?php esc_html_e( 'Export to CSV', 'merchmanager' ); ?></a></p>
+                    <p>
+                        <a href="<?php echo esc_url( $export_summary_url ); ?>" class="button"><?php esc_html_e( 'Export summary to CSV', 'merchmanager' ); ?></a>
+                        <a href="<?php echo esc_url( $export_detail_url ); ?>" class="button"><?php esc_html_e( 'Export detail (Excel)', 'merchmanager' ); ?></a>
+                    </p>
+                    <p class="description"><?php esc_html_e( 'Detail export: one row per sale (date, band, show, merchandise, quantity, price, payment type) for margin analysis in Excel.', 'merchmanager' ); ?></p>
                 </div>
                 <div class="msp-report-content">
+                    <?php if ( ! empty( $sales_report['integrity_error'] ) ) : ?>
+                        <div class="notice notice-error"><p><?php echo esc_html( $sales_report['integrity_message'] ); ?></p></div>
+                    <?php else : ?>
                     <h2><?php esc_html_e( 'Sales Summary', 'merchmanager' ); ?></h2>
                     <div class="msp-inventory-stats" style="display:flex;flex-wrap:wrap;gap:15px;margin-bottom:24px;">
                         <div class="msp-stat-box">
@@ -533,6 +566,7 @@ $reports_bands = Merchmanager_Band::get_all();
                     <?php endif; ?>
                     <?php if ( empty( $sales_report['top_merchandise'] ) && empty( $sales_report['sales_by_payment'] ) && 0 === (int) $sales_report['summary']['total_sales'] ) : ?>
                         <p><?php esc_html_e( 'No sales data found for the selected period.', 'merchmanager' ); ?></p>
+                    <?php endif; ?>
                     <?php endif; ?>
                 </div>
                 <?php break;

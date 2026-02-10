@@ -25,8 +25,8 @@ if ( isset( $_GET['skip'] ) && '1' === sanitize_text_field( wp_unslash( $_GET['s
 	exit;
 }
 
-if ( isset( $_POST['merchmanager_onboarding_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['merchmanager_onboarding_nonce'] ) ), 'merchmanager_onboarding' ) ) {
-	if ( isset( $_POST['action'] ) && $_POST['action'] === 'load_demo' ) {
+if ( isset( $_POST['merchmanager_onboarding_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['merchmanager_onboarding_nonce'] ) ), 'merchmanager_onboarding' ) && current_user_can( 'manage_msp' ) ) {
+	if ( isset( $_POST['action'] ) && sanitize_text_field( wp_unslash( $_POST['action'] ) ) === 'load_demo' ) {
 		require_once plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . 'includes/services/class-merchmanager-demo-service.php';
 		$demo_service = new Merchmanager_Demo_Service();
 		$result       = $demo_service->create_demo_data();
@@ -36,7 +36,7 @@ if ( isset( $_POST['merchmanager_onboarding_nonce'] ) && wp_verify_nonce( saniti
 			exit;
 		}
 	}
-	if ( isset( $_POST['action'] ) && $_POST['action'] === 'create_band' && ! empty( $_POST['band_name'] ) ) {
+	if ( isset( $_POST['action'] ) && sanitize_text_field( wp_unslash( $_POST['action'] ) ) === 'create_band' && ! empty( $_POST['band_name'] ) ) {
 		require_once plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . 'includes/models/class-merchmanager-band.php';
 		$band_name = sanitize_text_field( wp_unslash( $_POST['band_name'] ) );
 		$band = new Merchmanager_Band( 0, $band_name, '' );
@@ -48,7 +48,7 @@ if ( isset( $_POST['merchmanager_onboarding_nonce'] ) && wp_verify_nonce( saniti
 		}
 	}
 
-	if ( isset( $_POST['action'] ) && $_POST['action'] === 'complete' ) {
+	if ( isset( $_POST['action'] ) && sanitize_text_field( wp_unslash( $_POST['action'] ) ) === 'complete' ) {
 		update_option( 'merchmanager_onboarding_complete', true );
 		wp_safe_redirect( admin_url( 'admin.php?page=merchmanager&onboarding_complete=1' ) );
 		exit;

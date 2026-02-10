@@ -370,6 +370,23 @@ class Merchmanager_Sales_Service {
     }
 
     /**
+     * Get raw sales totals (no grouping) for reconciliation.
+     * Same filters as get_sales_summary; used to verify report totals.
+     *
+     * @since    1.0.0
+     * @param    array    $args    Query arguments (same as get_sales_summary).
+     * @return   object|null       Single row with count, total_quantity, total_amount or null.
+     */
+    public function get_sales_totals_raw( $args = array() ) {
+        $args['group_by'] = '';
+        $summary = $this->get_sales_summary( $args );
+        if ( empty( $summary ) || ! isset( $summary[0] ) ) {
+            return null;
+        }
+        return $summary[0];
+    }
+
+    /**
      * Get top selling merchandise.
      *
      * @since    1.0.0

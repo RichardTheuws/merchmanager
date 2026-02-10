@@ -62,6 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option value="CAD" <?php selected( isset( $options['currency'] ) ? $options['currency'] : 'USD', 'CAD' ); ?>><?php esc_html_e( 'Canadian Dollar ($)', 'merchmanager' ); ?></option>
                                 <option value="AUD" <?php selected( isset( $options['currency'] ) ? $options['currency'] : 'USD', 'AUD' ); ?>><?php esc_html_e( 'Australian Dollar ($)', 'merchmanager' ); ?></option>
                             </select>
+                            <p class="description"><?php esc_html_e( 'Used for all prices and report totals. EU tours often use Euro (€); US tours use USD ($).', 'merchmanager' ); ?></p>
                         </td>
                     </tr>
                     

@@ -243,6 +243,33 @@
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+/* P2.3 – Low Stock actionable: warning state + CTA */
+.msp-stat-box-warning {
+	border-color: #f59e0b;
+	background-color: #fffbeb;
+}
+.msp-stat-box-warning .msp-stat-value {
+	color: #b45309;
+}
+.msp-stat-cta {
+	margin: 10px 0 0;
+}
+.msp-stat-cta .button {
+	min-height: 44px;
+	padding: 8px 14px;
+}
+.msp-dashboard-card.msp-card-low-stock {
+	border-left: 4px solid #f59e0b;
+}
+.msp-low-stock-notice {
+	margin: 0 0 10px;
+	padding: 8px 12px;
+	background-color: #fffbeb;
+	border-radius: 4px;
+	font-weight: 600;
+	color: #b45309;
+}
+
 .msp-stat-box h3 {
 	font-size: 0.75rem;
 	font-weight: 600;
@@ -547,4 +574,103 @@
 .msp-report-filters select:focus {
 	outline: 2px solid #6b7280;
 	outline-offset: 2px;
+}
+
+/* P2.2 – Mobile-first: touch targets min 44px, responsive critical flows (Hans & Eric) */
+.msp-sales-item .button,
+.msp-report-filters .button,
+.msp-report-content .button,
+.msp-dashboard-card-footer .button,
+.msp-empty-state-actions .button,
+.merchmanager-onboarding .button {
+	min-height: 44px;
+	min-width: 44px;
+	padding: 10px 16px;
+}
+.msp-quick-link {
+	min-width: 44px;
+	min-height: 44px;
+}
+.msp-report-filters form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+.msp-report-filters form label,
+.msp-report-filters form select,
+.msp-report-filters form input[type="date"],
+.msp-report-filters form input[type="submit"] {
+	margin: 0;
+}
+.msp-report-filters form input[type="submit"] {
+	min-height: 44px;
+	padding: 10px 16px;
+}
+.msp-report-filters .description {
+	width: 100%;
+	margin-top: 4px;
+}
+.msp-report-tooltip {
+	margin-bottom: 8px;
+	color: #6b7280;
+}
+@media (max-width: 782px) {
+	.msp-dashboard-stats {
+		flex-direction: column;
+	}
+	.msp-stat-box {
+		min-width: 0;
+	}
+	.msp-report-filters form {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.msp-report-filters form select,
+	.msp-report-filters form input[type="date"] {
+		width: 100%;
+		max-width: 100%;
+	}
+	.msp-report-content .widefat {
+		display: block;
+		overflow-x: auto;
+	}
+	.msp-sales-item {
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+	.msp-sales-item-quantity {
+		margin: 0;
+	}
+	.msp-sales-item .button {
+		flex: 1 1 100%;
+	}
+}
+@media (max-width: 375px) {
+	.msp-page-content,
+	.msp-dashboard,
+	.msp-sales-form {
+		max-width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.msp-dashboard-welcome,
+	.msp-dashboard-stats,
+	.msp-dashboard-column {
+		min-width: 0;
+	}
+	.msp-quick-link {
+		width: 100%;
+		min-width: 0;
+	}
+	.msp-report-filters,
+	.msp-report-content {
+		padding: 16px;
+	}
+	.msp-inventory-stats {
+		flex-direction: column;
+	}
+	.msp-stat-box {
+		min-width: 0;
+	}
 }

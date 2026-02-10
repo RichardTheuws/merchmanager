@@ -11,9 +11,12 @@
     "test:js": "wp-scripts test-unit-js",
     "test:e2e": "cypress run",
     "test:e2e:open": "cypress open",
+    "test:p2": "playwright test tests/e2e/p2-uat.spec.js",
+    "test:p2:ui": "playwright test tests/e2e/p2-uat.spec.js --ui",
     "analyze": "webpack-bundle-analyzer dist/main.js"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@wordpress/scripts": "^27.0.0",
     "cypress": "^12.0.0",
     "webpack-bundle-analyzer": "^4.8.0"

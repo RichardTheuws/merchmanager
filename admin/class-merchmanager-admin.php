@@ -370,7 +370,9 @@ class Merchmanager_Admin {
 	 * @since    1.0.3
 	 */
 	public function maybe_handle_report_csv_export() {
-		if ( ! isset( $_GET['msp_export_csv'] ) || $_GET['msp_export_csv'] !== '1' ) {
+		$is_summary = isset( $_GET['msp_export_csv'] ) && $_GET['msp_export_csv'] === '1';
+		$is_detail  = isset( $_GET['msp_export_sales_detail'] ) && $_GET['msp_export_sales_detail'] === '1';
+		if ( ! $is_summary && ! $is_detail ) {
 			return;
 		}
 		if ( ! current_user_can( 'manage_msp_sales' ) ) {
@@ -379,9 +381,34 @@ class Merchmanager_Admin {
 		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'msp_export_sales_report' ) ) {
 			wp_die( esc_html__( 'Security check failed.', 'merchmanager' ) );
 		}
-		$band_id   = isset( $_GET['band_id'] ) ? absint( $_GET['band_id'] ) : 0;
+		$band_id    = isset( $_GET['band_id'] ) ? absint( $_GET['band_id'] ) : 0;
 		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( wp_unslash( $_GET['start_date'] ) ) : gmdate( 'Y-m-01' );
 		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( wp_unslash( $_GET['end_date'] ) ) : gmdate( 'Y-m-d' );
+
+		if ( $is_detail ) {
+			// P2.1: Row-level export for Excel (Jim – margin analysis).
+			require_once MERCHMANAGER_PLUGIN_DIR . 'includes/services/class-merchmanager-sales-service.php';
+			$sales_service = new Merchmanager_Sales_Service();
+			$args          = array(
+				'band_id'    => $band_id,
+				'start_date' => $start_date,
+				'end_date'   => $end_date,
+			);
+			$filename = 'sales-detail-' . gmdate( 'Y-m-d' ) . '.csv';
+			$filepath = wp_tempnam( $filename );
+			$result   = $sales_service->export_sales_to_csv( $args, $filepath );
+			if ( empty( $result['success'] ) ) {
+				wp_die( esc_html( $result['message'] ?? __( 'Export failed.', 'merchmanager' ) ) );
+			}
+			nocache_headers();
+			header( 'Content-Type: text/csv; charset=utf-8' );
+			header( 'Content-Disposition: attachment; filename="' . esc_attr( $filename ) . '"' );
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile -- Temp file from wp_tempnam(); stream for download.
+			readfile( $filepath );
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink -- Delete temp file after download.
+			@unlink( $filepath );
+			exit;
+		}
 
 		require_once MERCHMANAGER_PLUGIN_DIR . 'includes/services/class-merchmanager-report-service.php';
 		$report_service = new Merchmanager_Report_Service();
@@ -390,6 +417,10 @@ class Merchmanager_Admin {
 			'start_date' => $start_date,
 			'end_date'   => $end_date,
 		) );
+
+		if ( ! empty( $report['integrity_error'] ) ) {
+			wp_die( esc_html( $report['integrity_message'] ?? __( 'Data consistency check failed. Export aborted.', 'merchmanager' ) ) );
+		}
 
 		$filename = 'sales-report-' . gmdate( 'Y-m-d' ) . '.csv';
 		$filepath = wp_tempnam( $filename );
@@ -403,6 +434,58 @@ class Merchmanager_Admin {
 		header( 'Content-Type: text/csv; charset=utf-8' );
 		header( 'Content-Disposition: attachment; filename="' . esc_attr( $filename ) . '"' );
 		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile -- Temp file from wp_tempnam(); stream for download.
+		readfile( $filepath );
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink -- Delete temp file after download.
+		@unlink( $filepath );
+		exit;
+	}
+
+	/**
+	 * Handle low stock CSV export for reorder (P2.3).
+	 *
+	 * @since    1.1.4
+	 */
+	public function maybe_handle_low_stock_export() {
+		if ( ! isset( $_GET['msp_export_low_stock'] ) || $_GET['msp_export_low_stock'] !== '1' ) {
+			return;
+		}
+		if ( ! current_user_can( 'manage_msp_merchandise' ) ) {
+			wp_die( esc_html__( 'You do not have sufficient permissions.', 'merchmanager' ) );
+		}
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'msp_export_low_stock' ) ) {
+			wp_die( esc_html__( 'Security check failed.', 'merchmanager' ) );
+		}
+		$band_id = isset( $_GET['band_id'] ) ? absint( $_GET['band_id'] ) : 0;
+		require_once MERCHMANAGER_PLUGIN_DIR . 'includes/services/class-merchmanager-stock-service.php';
+		$stock_service   = new Merchmanager_Stock_Service();
+		$low_stock_items = $stock_service->get_low_stock_items( array( 'band_id' => $band_id ) );
+		$options        = get_option( 'msp_settings', array() );
+		$delimiter      = isset( $options['csv_delimiter'] ) && $options['csv_delimiter'] === 'semicolon' ? ';' : ',';
+		$filename       = 'low-stock-reorder-' . gmdate( 'Y-m-d' ) . '.csv';
+		$filepath       = wp_tempnam( $filename );
+		$fh             = fopen( $filepath, 'w' );
+		if ( ! $fh ) {
+			wp_die( esc_html__( 'Export failed.', 'merchmanager' ) );
+		}
+		fputcsv( $fh, array( __( 'Item', 'merchmanager' ), __( 'SKU', 'merchmanager' ), __( 'Current Stock', 'merchmanager' ), __( 'Threshold', 'merchmanager' ), __( 'Band', 'merchmanager' ) ), $delimiter );
+		foreach ( $low_stock_items as $item ) {
+			$threshold = $item->get_low_stock_threshold();
+			if ( ! $threshold ) {
+				$threshold = isset( $options['low_stock_threshold'] ) ? $options['low_stock_threshold'] : 5;
+			}
+			$band_name = '';
+			$bid       = $item->get_band_id();
+			if ( $bid ) {
+				$band = get_post( $bid );
+				$band_name = $band && $band->post_type === 'msp_band' ? $band->post_title : '';
+			}
+			fputcsv( $fh, array( $item->get_name(), $item->get_sku(), $item->get_stock(), $threshold, $band_name ), $delimiter );
+		}
+		fclose( $fh );
+		nocache_headers();
+		header( 'Content-Type: text/csv; charset=utf-8' );
+		header( 'Content-Disposition: attachment; filename="' . esc_attr( $filename ) . '"' );
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile -- Temp file for download.
 		readfile( $filepath );
 		// phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink -- Delete temp file after download.
 		@unlink( $filepath );

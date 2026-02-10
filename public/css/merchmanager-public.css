@@ -290,6 +290,24 @@
     font-size: 16px;
 }
 
+/* P2.2 – Mobile-first: touch targets min 44px (Hans & Eric) */
+.msp-button,
+.msp-merchandise-quantity .msp-button,
+.msp-merchandise-quantity input[type="number"],
+.msp-quantity-input {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+}
+.msp-merchandise-quantity input[type="number"] {
+    width: 56px;
+    text-align: center;
+}
+.msp-submit .msp-button {
+    min-width: 120px;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .msp-merchandise-item {
@@ -311,5 +329,30 @@
 @media (max-width: 480px) {
     .msp-band-item {
         width: 100%;
+    }
+    .msp-sales-page {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 375px) {
+    .msp-sales-page {
+        padding: 10px;
+        max-width: 100%;
+    }
+    .msp-merchandise-item {
+        padding: 12px;
+    }
+    .msp-merchandise-image {
+        width: 60px;
+        margin-right: 10px;
+    }
+    .msp-sale-summary,
+    .msp-access-code-form {
+        padding: 16px;
+    }
+    .msp-band-item {
+        width: 100%;
+        margin: 8px 0;
     }
 }

@@ -67,9 +67,13 @@ $has_bands = ! empty( $bands_for_empty );
                     <p class="msp-stat-value"><?php echo esc_html( $this->get_active_tours_count() ); ?></p>
                 </div>
                 
-                <div class="msp-stat-box">
+                <?php $low_stock_count = $this->get_low_stock_count(); ?>
+                <div class="msp-stat-box <?php echo $low_stock_count > 0 ? 'msp-stat-box-warning' : ''; ?>">
                     <h3><?php esc_html_e( 'Low Stock Items', 'merchmanager' ); ?></h3>
-                    <p class="msp-stat-value"><?php echo esc_html( $this->get_low_stock_count() ); ?></p>
+                    <p class="msp-stat-value"><?php echo esc_html( $low_stock_count ); ?></p>
+                    <?php if ( $low_stock_count > 0 ) : ?>
+                        <p class="msp-stat-cta"><a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=inventory' ) ); ?>" class="button button-small"><?php esc_html_e( 'View for reorder', 'merchmanager' ); ?></a></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -108,13 +112,25 @@ $has_bands = ! empty( $bands_for_empty );
                     </div>
                 </div>
                 
-                <div class="msp-dashboard-card">
+                <?php
+                $services = $this->get_dashboard_services();
+                $low_stock_items = $services['stock']->get_low_stock_items( array() );
+                $has_low_stock = ! empty( $low_stock_items );
+                ?>
+                <div class="msp-dashboard-card <?php echo $has_low_stock ? 'msp-card-low-stock' : ''; ?>">
                     <h3><?php esc_html_e( 'Low Stock Alerts', 'merchmanager' ); ?></h3>
                     <div class="msp-dashboard-card-content">
+                        <?php if ( $has_low_stock ) : ?>
+                            <p class="msp-low-stock-notice"><?php echo esc_html( sprintf( /* translators: %d: number of items */ _n( '%d item needs reordering.', '%d items need reordering.', count( $low_stock_items ), 'merchmanager' ), count( $low_stock_items ) ) ); ?></p>
+                        <?php endif; ?>
                         <?php $this->display_low_stock_alerts(); ?>
                     </div>
                     <div class="msp-dashboard-card-footer">
-                        <a href="<?php echo esc_url( admin_url( 'edit.php?post_type=msp_merchandise' ) ); ?>" class="button"><?php esc_html_e( 'Manage Inventory', 'merchmanager' ); ?></a>
+                        <?php if ( $has_low_stock ) : ?>
+                            <a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=inventory' ) ); ?>" class="button"><?php esc_html_e( 'View low stock for reorder', 'merchmanager' ); ?></a>
+                        <?php else : ?>
+                            <a href="<?php echo esc_url( admin_url( 'admin.php?page=msp-reports&tab=inventory' ) ); ?>" class="button"><?php esc_html_e( 'View inventory', 'merchmanager' ); ?></a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

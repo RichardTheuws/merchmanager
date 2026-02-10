@@ -86,7 +86,8 @@ jspm_packages/
 # Windows
 Thumbs.db
 
-# IDE
+# IDE / editor
+.cursor/
 .vscode/
 .idea/
 *.swp
@@ -99,6 +100,7 @@ temp/
 # Deployment artifacts
 deployment/
 merchmanager.zip
+merchmanager-*.zip
 
 # WordPress specific
 /wp/
@@ -112,3 +114,8 @@ composer.lock
 # Cypress
 cypress/screenshots/
 cypress/videos/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/

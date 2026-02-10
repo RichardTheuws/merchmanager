@@ -180,6 +180,7 @@ class Merchmanager {
 
 		// Handle CSV export before any output
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'maybe_handle_report_csv_export' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'maybe_handle_low_stock_export' );
 
 		// Handle tour show import/export
 		$this->loader->add_action( 'admin_post_msp_import_shows', $plugin_admin, 'handle_tour_import_shows' );
