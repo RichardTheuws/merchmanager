@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.5] - 2026-02-08
+
+### Added (documentation)
+- **Final Audit**: `docs/FINAL_AUDIT_ROADMAP_1.1.4.md` – Audit checklist for P0, P1, P2 with proof (Playwright test names / manual UAT refs), status fields, definition of 100% passed, and test environment requirements.
+- **UAT feedback loop**: `docs/UAT_FEEDBACK_LOOP.md` – Six-step method to run Playwright + manual UAT, fill results in the audit, act on skip/fail (environment or code), and repeat until all items are passed. Feedback loop is also described in the Final Audit document (sectie 4).
+
+### Changed
+- **Version**: Plugin 1.1.4 → 1.1.5 (SemVer PATCH: documentation and audit process).
+
+## [1.1.4] - 2026-02-08
+
+### Added (P2.1 – Jim)
+- **Reports → Sales**: "Export detail (Excel)" button. Downloads a row-level CSV (one row per sale) with date, band, show, merchandise, quantity, price, payment type, total and related fields for margin analysis in Excel. Uses same filters (band, date range) as the report. Summary export remains available as "Export summary to CSV".
+
+### Added (P2.2 – Hans & Eric)
+- **Mobile-first / responsive**: Admin and public CSS updated for critical flows at 375px viewport: touch targets min 44px for buttons and quantity inputs; report filters and sales items stack on small screens; no horizontal scroll on Dashboard, Reports (Sales), and Sales recording.
+
+### Added (P2.3 – Hans & Harry)
+- **Low Stock Alert actionable**: Dashboard "Low Stock Items" stat shows warning style when count > 0 and a "View for reorder" button. "Low Stock Alerts" card shows a clear notice ("X items need reordering") and CTA "View low stock for reorder" linking to Reports → Inventory. Reports → Inventory: "Export for reorder (CSV)" button for low stock items (Item, SKU, Current Stock, Threshold, Band) for use with printer/supplier.
+
+### Added (P2.4 – Eric)
+- **Educative tooltips**: Settings → General: short description under Currency (EU tours often use €; US use $). Reports → Sales: line stating that all amounts use the configured currency (Settings → General).
+
+### Added (testing)
+- **Playwright P2 UAT suite**: `tests/e2e/p2-uat.spec.js` plus `playwright.config.js`. Covers P2.1 (export buttons and CSV downloads), P2.2 (375px viewport, no horizontal scroll, touch targets), P2.3 (Low Stock dashboard and Inventory export), P2.4 (currency tooltip text). Run with `BASE_URL=https://merchmanager.local WP_USER=admin WP_PASSWORD=xxx npm run test:p2`. See `docs/UAT_P2_Roadmap_1.1.4.md`.
+
+## [1.1.3] - 2026-02-08
+
+### Added
+- **P0 Failsafe (Roadmap)**: Report data integrity check. Sales report totals are reconciled against a raw aggregation on the sales table; if the values differ, the report is not shown and a clear error message is displayed instead. Prevents displaying incorrect totals. Optional logging to debug.log when WP_DEBUG_LOG is enabled.
+- **Sales Service**: `get_sales_totals_raw( $args )` for reconciliation (same filters as `get_sales_summary`, no grouping).
+
+### Fixed
+- **Reports**: Sales summary totals were previously taken from the first row of a grouped query (e.g. first day only). Totals are now computed from an explicit ungrouped summary query, so Total Sales, Total Quantity, and Total Revenue are correct for the selected period.
+
+### Changed
+- **Reports**: When integrity check fails, the Sales report tab shows an error notice and no totals/tables; CSV export is aborted with the same message.
+
+### Security (P1)
+- **Onboarding**: Explicit `current_user_can( 'manage_msp' )` check before processing load_demo, create_band, and complete actions; `$_POST['action']` sanitized with `sanitize_text_field( wp_unslash() )`.
+
 ## [1.1.2] - 2026-02-08
 
 ### Changed
